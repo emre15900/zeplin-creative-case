@@ -1,92 +1,122 @@
 'use client';
 
+import Image from 'next/image';
 import Icon from './Icon';
 
 export default function CallForPapers() {
   return (
-    <section className="py-10 bg-gradient-to-r from-[#E8F4FC] to-[#D4EDFC]">
+    <section className="py-12 bg-white">
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
-          {/* Left - Magazine Preview */}
-          <div className="flex-shrink-0">
-            <div className="relative w-[160px] h-[210px] bg-white rounded-lg shadow-lg overflow-hidden">
-              {/* Header */}
-              <div className="bg-[#0A1742] text-white px-3 py-2">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-4 h-4 rounded bg-white flex items-center justify-center">
-                    <span className="text-[var(--primary-blue)] text-[7px] font-bold">P</span>
-                  </div>
-                  <span className="text-[10px] font-bold">profuture</span>
+        {/* Main Card Container - matching Figma specs */}
+        <div 
+          className="relative overflow-hidden"
+          style={{
+            borderRadius: '35px',
+            minHeight: '439px',
+            backgroundImage: 'url(/img/callforpapaersbg.svg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+
+          <div className="relative flex items-center h-full">
+            {/* Left - Decorative Image Area */}
+            <div className="hidden lg:block w-[514px] h-[439px] flex-shrink-0 relative overflow-hidden">
+              <Image
+                src="/img/CallForPapersLeft.svg"
+                alt="Decorative illustration"
+                fill
+                className="object-cover object-right"
+                priority
+              />
+            </div>
+
+            {/* Center - Content */}
+            <div className="flex-1 py-12 px-8 lg:px-4 text-center">
+              {/* Promotion Icon - rotated 30 degrees as per Figma */}
+              <div className="flex justify-center mb-4">
+                <div 
+                  className="w-10 h-10 flex items-center justify-center"
+                  style={{ transform: 'rotate(30deg)' }}
+                >
+                  <Icon name="promotion" size={40} className="text-[#DB0D15]" />
                 </div>
               </div>
               
-              {/* Content */}
-              <div className="flex-1 flex flex-col items-center justify-center p-3 h-[calc(100%-44px)]">
-                <div className="w-10 h-10 rounded-full bg-[var(--accent-red)]/10 flex items-center justify-center mb-2">
-                  <Icon name="promotion" size={20} />
-                </div>
-                <p className="text-[9px] text-[var(--text-secondary)] text-center">Makale Çağrısı</p>
-                <p className="text-[10px] font-bold text-[var(--primary-blue)] text-center mt-0.5">Dijital Veri</p>
-              </div>
+              {/* Subtitle */}
+              <p 
+                className="text-[16px] font-medium mb-3"
+                style={{ color: '#676A73' }}
+              >
+                Makale Çağrısı
+              </p>
               
-              {/* Bottom accent */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-[var(--accent-red)]"></div>
+              {/* Title */}
+              <h3 
+                className="text-[22px] lg:text-[26px] font-bold mb-8 leading-tight"
+                style={{ color: '#273D89' }}
+              >
+                Türkiye Ulusal Dijital Veri ve Altyapıları
+              </h3>
+              
+              {/* Description */}
+              <p 
+                className="text-[15px] leading-[25px] mb-8 max-w-[555px] mx-auto"
+                style={{ color: '#2A2C31' }}
+              >
+                Bu dosya kapsamında; ulusal ölçekte dijital veri yönetimi, kamu ve özel sektörde teknoloji altyapıları, yapay zekâ uygulamaları, büyük veri analitiği, siber güvenlik, akıllı sistemler ve dijital dönüşüm odaklı özgün, güncel ve disiplinlerarası akademik çalışmalar değerlendirilecektir.
+              </p>
+
+              {/* CTA Button - pill shape with 50px radius */}
+              <button 
+                className="inline-flex items-center cursor-pointer justify-center gap-2.5 text-white px-6 py-4 text-[16px] font-semibold hover:opacity-90 transition-all"
+                style={{ 
+                  backgroundColor: '#DB0D15',
+                  borderRadius: '50px',
+                  minWidth: '200px'
+                }}
+              >
+                <span>Makale Gönder</span>
+                <Icon name="right" size={16} className="invert" />
+              </button>
+            </div>
+
+            {/* Right - Magazine Cover */}
+            <div className="hidden lg:block w-[306px] flex-shrink-0 relative self-start -mt-[25px]">
+              <div 
+                className="relative w-[306px] h-[465px] overflow-hidden"
+                style={{
+                  borderRadius: '27px',
+                  boxShadow: '0 5px 15px rgba(0, 0, 0, 0.25)'
+                }}
+              >
+                <Image
+                  src="/img/CallForPapersRight.svg"
+                  alt="Dergi Kapağı"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
 
-          {/* Center - Content */}
-          <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full mb-3 shadow-sm">
-              <Icon name="promotion" size={14} />
-              <span className="text-[10px] font-semibold text-[var(--accent-red)]">Makale Çağrısı</span>
-            </div>
-            
-            <h3 className="text-lg md:text-xl font-bold text-[var(--text-dark)] mb-3">
-              Türkiye Ulusal Dijital Veri ve Altyapıları
-            </h3>
-            
-            <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4 max-w-md">
-              Bu dosya kapsamında; ulusal ölçekte dijital veri yönetimi, kamu ve özel sektörde teknoloji altyapıları, yapay zeka uygulamaları, büyük veri analitiği, siber güvenlik, akıllı sistemler ve dijital dönüşüm odaklı akademik çalışmalar değerlendirilecektir.
-            </p>
-
-            <button className="inline-flex items-center gap-2 bg-[var(--accent-red)] text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-[#b50a11] transition-colors">
-              Makaleye Gönderi
-              <Icon name="arrow-right" size={14} className="invert" />
-            </button>
-          </div>
-
-          {/* Right - Second Magazine */}
-          <div className="flex-shrink-0">
-            <div className="relative w-[180px] h-[230px] bg-white rounded-lg shadow-lg overflow-hidden">
-              {/* Header */}
-              <div className="bg-[#0A1742] text-white px-3 py-2 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-4 h-4 rounded bg-white flex items-center justify-center">
-                    <span className="text-[var(--primary-blue)] text-[7px] font-bold">P</span>
-                  </div>
-                  <span className="text-[10px] font-bold">profuture</span>
-                </div>
-                <span className="text-[7px] bg-[var(--accent-green)] px-1.5 py-0.5 rounded font-medium">6. SAYI</span>
-              </div>
-              
-              {/* Visual - Light blue background with tech */}
-              <div className="relative h-[90px] bg-gradient-to-br from-[#E8F4FC] to-[#D4EDFC] flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-[var(--primary-blue)]/10 flex items-center justify-center">
-                  <Icon name="Target" size={24} />
-                </div>
-              </div>
-              
-              {/* Content */}
-              <div className="p-3">
-                <div className="text-center">
-                  <p className="text-[9px] text-[var(--accent-red)] font-semibold mb-0.5">Bilgi ve Teknoloji</p>
-                  <p className="text-[9px] text-[var(--accent-red)] font-semibold mb-0.5">Araştırmaları</p>
-                  <p className="text-[10px] font-bold text-[var(--primary-blue)]">Makale Çağrısı</p>
-                </div>
-              </div>
-              
-              {/* Bottom accent */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-[var(--accent-red)]"></div>
+          {/* Mobile Magazine Cover */}
+          <div className="lg:hidden flex justify-center pb-8 px-8">
+            <div 
+              className="relative w-[240px] h-[365px] overflow-hidden"
+              style={{
+                borderRadius: '27px',
+                boxShadow: '0 5px 15px rgba(0, 0, 0, 0.25)'
+              }}
+            >
+              <Image
+                src="/img/CallForPapersRight.svg"
+                alt="Dergi Kapağı"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>

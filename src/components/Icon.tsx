@@ -35,8 +35,8 @@ export const Icons = {
   // Arrows
   ArrowUp: (props: Omit<IconProps, 'name'>) => <Icon name="arrow-up" {...props} />,
   ArrowDown: (props: Omit<IconProps, 'name'>) => <Icon name="arrow-down" {...props} />,
-  ArrowLeft: (props: Omit<IconProps, 'name'>) => <Icon name="arrow-left" {...props} />,
-  ArrowRight: (props: Omit<IconProps, 'name'>) => <Icon name="arrow-right" {...props} />,
+  ArrowLeft: (props: Omit<IconProps, 'name'>) => <Icon name="left" {...props} />,
+  ArrowRight: (props: Omit<IconProps, 'name'>) => <Icon name="right" {...props} />,
   Left: (props: Omit<IconProps, 'name'>) => <Icon name="left" {...props} />,
   Right: (props: Omit<IconProps, 'name'>) => <Icon name="right" {...props} />,
   Up: (props: Omit<IconProps, 'name'>) => <Icon name="up" {...props} />,
