@@ -4,65 +4,63 @@ import Icon from './Icon';
 
 export default function Footer() {
   return (
-    <footer className="relative">
-      {/* Main Footer */}
-      <div className="bg-[#0A1742] text-white">
-        <div className="container py-8">
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Editor Info */}
-            <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="author" size={18} className="invert opacity-80" />
-              </div>
-              <div>
-                <p className="text-[10px] text-white/50 mb-0.5">Dergi Editörü</p>
-                <p className="text-sm font-medium">Prof. Dr. Elif Başkaya Acar</p>
-                <p className="text-[10px] text-white/60 mt-0.5">editor@profuture.com</p>
-              </div>
+    <footer className="bg-[#111B2B] text-white pt-16">
+      <div className="container">
+        {/* Main Footer Info */}
+        <div className="grid md:grid-cols-3 gap-12 mb-16">
+          {/* Editor Info */}
+          <div className="flex items-start gap-5">
+            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center flex-shrink-0">
+              <Icon name="author" size={24} className="invert opacity-80" />
             </div>
-
-            {/* Email */}
-            <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="email" size={18} className="invert opacity-80" />
-              </div>
-              <div>
-                <p className="text-[10px] text-white/50 mb-0.5">Mail Adresi</p>
-                <p className="text-sm font-medium">profuture@gmail.com</p>
-              </div>
+            <div>
+              <p className="text-[12px] text-white/40 mb-1">Dergi Editörü</p>
+              <p className="text-[16px] font-bold">Prof. Dr. Elif Başkaya Acar</p>
+              <p className="text-[12px] text-[#DB0D15] mt-1 flex items-center gap-1">
+                 <span className="w-2 h-2 rounded-full bg-[#DB0D15]"></span>
+                 elif@gmail.com
+              </p>
             </div>
+          </div>
 
-            {/* Address */}
-            <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="location" size={18} className="invert opacity-80" />
-              </div>
-              <div>
-                <p className="text-[10px] text-white/50 mb-0.5">Profuture Teknoloji Yayınevi</p>
-                <p className="text-sm font-medium">Ahmet Kemal Mahallesi 1345, Cadde No: 10</p>
-                <p className="text-xs text-white/80">Çankaya/Ankara</p>
-              </div>
+          {/* Email */}
+          <div className="flex items-start gap-5">
+            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center flex-shrink-0">
+              <Icon name="email" size={24} className="invert opacity-80" />
+            </div>
+            <div>
+              <p className="text-[12px] text-white/40 mb-1">Mail Adresi</p>
+              <p className="text-[16px] font-bold">profuture@gmail.com</p>
+            </div>
+          </div>
+
+          {/* Address */}
+          <div className="flex items-start gap-5">
+            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center flex-shrink-0">
+              <Icon name="location" size={24} className="invert opacity-80" />
+            </div>
+            <div>
+              <p className="text-[12px] text-white/40 mb-1">Profuture Teknoloji Yayınevi</p>
+              <p className="text-[16px] font-bold leading-tight">
+                Ahmet Kemal Mahallesi 1245. Cadde No: 10 Çankaya/Ankara
+              </p>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-[var(--accent-red)] text-white">
-        <div className="container py-2.5">
-          <p className="text-[9px] text-white/90 leading-relaxed">
-            Bu sitenin yeli olan tüm yazılı, görsel ve sayısal içeriklerin haklar Profuture&apos;nun korunmaktadır. Skor içeriklerde yer alan bilgilerim öğretim amaçlı kullanılması amacıyla hazırlanmış olup, Ticari faaliyetlerde için sora düşünülmelerde kullanılmaması rica olunur. Daha detaylı bilgi, düzeltme, istimna ve benzer konuları sayı irtik aracı.
+        {/* Legal Text */}
+        <div className="border-t border-white/5 py-10">
+          <p className="text-[12px] text-white/30 text-center max-w-[1000px] mx-auto leading-relaxed italic">
+            Bu sitede yer alan tüm yazılı, görsel ve sayısal içeriklerin hakları Profuture&apos;nun korunmaktadır. Site içeriğinde sunulan bilgilerin yalnızca eğitim bilgilendirme amacıyla hazırlanmış olup, bu bilgilerin kullanıcılarından doğabilecek her türlü sorumculuk kullanıcıya aittir. Siteye erişim sağlayan kullanıcılar, bu şartları okumuş, anlamış ve kabul etmiş sayılır.
           </p>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="bg-[#0A1742] text-white border-t border-white/10">
-        <div className="container py-3 flex flex-col md:flex-row items-center justify-center gap-2">
-          <p className="text-[10px] text-white/60">
-            Profuture Teknoloji - Tüm Hakları Saklıdır © 2025
-          </p>
-        </div>
+      {/* Red Copyright Bar */}
+      <div className="bg-[#DB0D15] py-3 text-center">
+        <p className="text-[12px] font-bold">
+          Profuture Teknoloji - Tüm Hakları Saklıdır. © 2025
+        </p>
       </div>
     </footer>
   );

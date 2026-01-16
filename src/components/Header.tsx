@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Icon from './Icon';
 
 const navItems = [
+  { name: 'Anasayfa', href: '/' },
   { name: 'Amaç ve Kapsam', href: '/amac-kapsam' },
   { name: 'Etik İlkeler ve Yayın Politikası', href: '/etik-ilkeler' },
   { name: 'Makale Çağrıları', href: '/makale-cagrilari' },
@@ -16,68 +17,68 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="w-full">
       {/* Top Bar */}
-      <div className="bg-[#0A1742] text-white">
-        <div className="container flex items-center justify-between py-2 text-[11px]">
+      <div className="bg-[#111B2B] text-white">
+        <div className="container flex items-center justify-between py-2 text-[12px]">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <Icon name="email" size={16} className="invert opacity-70" />
+              <Icon name="email" size={14} className="invert opacity-70" />
               <span className="text-white/80">profuture@gmail.com</span>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-6 text-white/80">
-            <span><strong className="text-[var(--accent-red)]">ISSN:</strong> 045-295</span>
-            <span><strong className="text-white">Başlangıç:</strong> 2025</span>
-            <span><strong className="text-white">Periyot:</strong> Yılda 2 Sayı</span>
+            <span><strong>ISSN:</strong> 345-255</span>
+            <span><strong>Başlangıç:</strong> 2025</span>
+            <span><strong>Periyot:</strong> Yılda 2 Sayı</span>
           </div>
         </div>
       </div>
 
       {/* Main Header */}
-      <div className="bg-white shadow-sm">
-        <nav className="container flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-lg bg-[var(--primary-blue)] flex items-center justify-center">
-              <span className="text-white font-bold text-base">P</span>
-            </div>
-            <div className="leading-none">
-              <p className="text-[13px] font-semibold text-[var(--primary-blue)]">profuture</p>
-              <span className="text-[10px] text-[var(--text-secondary)]">Teknoloji Dergisi</span>
-            </div>
-          </Link>
+      <div className="bg-white border-b border-gray-100">
+        <nav className="container flex items-center justify-between py-3">
+          {/* Logo and Nav */}
+          <div className="flex items-center gap-8">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 mr-4">
+              <div className="w-10 h-10 rounded-lg bg-[#273D89] flex items-center justify-center">
+                <span className="text-white font-bold text-xl">P</span>
+              </div>
+              <p className="text-[20px] font-bold text-[#111B2B]">profuture</p>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-5">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-[var(--text-primary)] hover:text-[var(--primary-blue)] transition-colors text-[12px] font-medium"
-              >
-                {item.name}
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-6">
+              <Link href="/" className="p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                <Icon name="home" size={20} />
               </Link>
-            ))}
+              {navItems.slice(1).map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-[14px] font-medium text-[#111B2B] hover:text-[#273D89] transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="hidden lg:flex items-center gap-2">
-            {/* Dergi Kurulu Button */}
-            <Link href="/kurul" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-[12px] font-medium hover:opacity-90 transition-opacity">
+          <div className="hidden lg:flex items-center gap-3">
+            <Link href="/kurul" className="flex items-center gap-2 bg-[#273D89] text-white px-5 py-2 rounded-lg text-[13px] font-semibold hover:opacity-90 transition-opacity">
               <Icon name="kurul" size={18} className="invert" />
               Dergi Kurulu
             </Link>
             
-            {/* Yazar Rehberi Button */}
-            <Link href="/yazar-rehberi" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-[12px] font-medium hover:opacity-90 transition-opacity">
+            <Link href="/yazar-rehberi" className="flex items-center gap-2 bg-[#A8B95E] text-white px-5 py-2 rounded-lg text-[13px] font-semibold hover:opacity-90 transition-opacity">
               <Icon name="author" size={18} className="invert" />
               Yazar Rehberi
             </Link>
 
-            {/* Search Button */}
-            <button className="w-9 h-9 rounded-full border border-[var(--border-light)] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group">
-              <Icon name="search" size={16} className="group-hover:invert" />
+            <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#273D89] transition-all">
+              <Icon name="search" size={18} />
             </button>
           </div>
 
