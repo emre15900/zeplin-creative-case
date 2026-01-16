@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Icon from './Icon';
+import Image from 'next/image';
 
 const navItems = [
   { name: 'Anasayfa', href: '/' },
@@ -41,12 +42,13 @@ export default function Header() {
           {/* Logo and Nav */}
           <div className="flex items-center gap-8">
             {/* Logo */}
+            <div className=''>
             <Link href="/" className="flex items-center gap-2 mr-4">
-              <div className="w-10 h-10 rounded-lg bg-[#273D89] flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
+              <div className="bg-[#273D89] p-4 rounded-lg">
+                <Image src="/img/logo-white.svg" alt="Logo" width={220} height={220} />
               </div>
-              <p className="text-[20px] font-bold text-[#111B2B]">profuture</p>
             </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-6">
@@ -71,7 +73,7 @@ export default function Header() {
               <Icon name="kurul" size={18} className="invert" />
               Dergi Kurulu
             </Link>
-            
+
             <Link href="/yazar-rehberi" className="flex items-center gap-2 bg-[#A8B95E] text-white px-5 py-2 rounded-lg text-[13px] font-semibold hover:opacity-90 transition-opacity">
               <Icon name="author" size={18} className="invert" />
               Yazar Rehberi
