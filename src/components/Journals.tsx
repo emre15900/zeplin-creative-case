@@ -41,7 +41,7 @@ const journals: JournalItem[] = [
     date: 'Aralık 2022',
     badge: 'Dergi',
     hasRibbon: true,
-    image: '/img/dergison.svg',
+    image: '/img/dergiler.svg',
   },
 ];
 
@@ -50,9 +50,9 @@ function JournalCard({ journal }: { journal: JournalItem }) {
     <div className="bg-white border border-[#E9F4F8] rounded-[20px] p-4 flex gap-[15px] relative overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Son Sayı Ribbon */}
       {journal.hasRibbon && (
-        <div className="absolute -left-[2px] top-0 z-20">
+        <div className="absolute -left-[2px] top-[121px] z-20">
           <div 
-            className="bg-[#DB0D15] text-white text-[11px] font-bold py-3 px-[6px] rounded-br-lg flex items-center justify-center"
+            className="bg-[#DB0D15] text-white text-[11px] font-bold py-3 px-[6px] rounded-r-lg flex items-center justify-center"
             style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', letterSpacing: '1px' }}
           >
             Son Sayı
@@ -115,14 +115,14 @@ function JournalCard({ journal }: { journal: JournalItem }) {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-3 mt-auto pt-4">
-          <button className="w-10 h-10 rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
+          <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
             <Icon name="eye" size={18} className="invert" />
           </button>
-          <button className="w-10 h-10 rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
+          <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
             <Icon name="download" size={18} className="text-[#676A73]" />
           </button>
-          <button className="w-10 h-10 rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
-            <Icon name="arrow-right" size={18} className="text-[#676A73]" />
+          <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
+            <Icon name="right" size={18} className="text-[#676A73]" />
           </button>
         </div>
       </div>
@@ -132,23 +132,23 @@ function JournalCard({ journal }: { journal: JournalItem }) {
 
 export default function Journals() {
   return (
-    <section className="py-16 bg-[#FBFBFB]">
+    <section className="pb-16 bg-[#FBFBFB]">
       <div className="container">
         {/* Header */}
         <div className="flex items-end gap-[19px] mb-10">
           {/* Title Section */}
           <div className="flex flex-col gap-3">
             <p className="text-[14px] text-[#676A73]">Sayılar</p>
-            <h2 className="text-[28px] font-bold text-[#273D89]">Dergiler</h2>
+            <h2 className="text-[20px] font-bold text-[#273D89]">Dergiler</h2>
           </div>
           
           {/* Nav Arrows */}
           <div className="flex items-center gap-3 pb-1">
-            <button className="w-10 h-10 rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group">
-              <Icon name="arrow-left" size={14} className="text-[#ACB1C6] group-hover:text-[#676A73]" />
+            <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group">
+              <Icon name="left" size={14} className="text-[#ACB1C6] group-hover:text-[#676A73]" />
             </button>
-            <button className="w-10 h-10 rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
-              <Icon name="arrow-right" size={14} className="invert" />
+            <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
+              <Icon name="right" size={14} className="invert" />
             </button>
           </div>
         </div>

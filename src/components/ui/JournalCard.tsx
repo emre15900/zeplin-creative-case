@@ -127,7 +127,7 @@ export default function JournalCard({
               onClick={onNext}
               className="w-11 h-11 rounded-full border border-[#ACB1C6] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group"
             >
-              <Icon name="arrow-right" size={18} className="group-hover:invert" />
+              <Icon name="right" size={18} className="group-hover:invert" />
             </button>
           </div>
         </div>

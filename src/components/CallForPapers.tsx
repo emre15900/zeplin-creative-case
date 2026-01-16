@@ -69,7 +69,7 @@ export default function CallForPapers() {
 
               {/* CTA Button - pill shape with 50px radius */}
               <button 
-                className="inline-flex items-center justify-center gap-2.5 text-white px-6 py-4 text-[16px] font-semibold hover:opacity-90 transition-all"
+                className="inline-flex items-center cursor-pointer justify-center gap-2.5 text-white px-6 py-4 text-[16px] font-semibold hover:opacity-90 transition-all"
                 style={{ 
                   backgroundColor: '#DB0D15',
                   borderRadius: '50px',
@@ -77,7 +77,7 @@ export default function CallForPapers() {
                 }}
               >
                 <span>Makale Gönder</span>
-                <Icon name="arrow-right" size={16} className="invert" />
+                <Icon name="right" size={16} className="invert" />
               </button>
             </div>
 

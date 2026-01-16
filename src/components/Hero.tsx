@@ -1,20 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import Icon from './Icon';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[750px] flex items-center z-0">
-      {/* Background - World Map and Lock */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/img/slider.svg"
-          alt="World Map"
-          fill
-          className="object-cover"
-        />
-      </div>
+    <section 
+      className="relative min-h-[700px] flex items-center z-0 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/img/slider.svg)', backgroundPosition: "bottom" }}
+    >
 
       <div className="container relative z-10 pb-24">
         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -22,7 +15,7 @@ export default function Hero() {
           <div className="flex-1 text-white">
             <div className="max-w-[500px]">
               <h1 className="text-[36px] md:text-[42px] mb-3! text-white! font-bold leading-tight mb-6">
-                Profuture Teknoloji Dergisi <br />
+                Profuture Teknoloji Dergisi
                 Son Sayı Yayında
               </h1>
 
@@ -47,9 +40,9 @@ export default function Hero() {
               </div>
 
               {/* CTA Button */}
-              <button className="inline-flex cursor-pointer mt-5! items-center gap-3 bg-[#273D89] text-white px-5! py-2! rounded-full text-[14px] font-semibold hover:bg-[#1a2d6b] transition-all">
+              <button className="inline-flex cursor-pointer mt-5! items-center gap-3 bg-[#273D89] text-white px-6! py-4! rounded-full text-[14px] font-semibold hover:bg-[#1a2d6b] transition-all">
                 Dergiyi Görüntüle
-                <Icon name="arrow-right" size={16} className="invert max-w-4 max-h-4" />
+                <Icon name="right" size={16} className="invert max-w-4 max-h-4" />
               </button>
             </div>
           </div>
