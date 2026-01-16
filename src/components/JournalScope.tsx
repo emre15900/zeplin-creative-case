@@ -5,7 +5,7 @@ import Icon from './Icon';
 
 export default function JournalScope() {
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="relative py-20 bg-white overflow-visible -mt-28 z-10">
       <div className="container">
         <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-0">
           {/* Left Content */}
@@ -34,7 +34,7 @@ export default function JournalScope() {
 
           {/* Right - Magazine Image */}
           <div className="flex-1 flex justify-end relative">
-            <div className="relative w-[739px] h-[696px]">
+            <div className="relative w-[739px] h-[696px] drop-shadow-[0_24px_40px_rgba(0,0,0,0.18)] -mt-[280px]">
               <Image
                 src="/img/journal-scope.svg"
                 alt="Profuture Teknoloji Dergisi"

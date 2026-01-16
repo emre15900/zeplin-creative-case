@@ -5,9 +5,9 @@ import Icon from './Icon';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#111B2B] min-h-[550px] flex items-center">
+    <section className="relative min-h-[750px] flex items-center z-0">
       {/* Background - World Map and Lock */}
-      <div className="absolute inset-0 z-0 opacity-40">
+      <div className="absolute inset-0 z-0">
         <Image
           src="/img/slider.svg"
           alt="World Map"
@@ -16,7 +16,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container relative z-10 py-16">
+      <div className="container relative z-10 pb-24">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}
           <div className="flex-1 text-white">
