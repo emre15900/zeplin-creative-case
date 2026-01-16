@@ -5,7 +5,7 @@ import Icon from './Icon';
 
 export default function JournalScope() {
   return (
-    <section className="relative pt-18 bg-white overflow-visible -mt-8 z-10">
+    <section className="relative pt-20 pb-16 bg-white overflow-visible -mt-8 z-10">
       <div className="container">
         <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-0">
           {/* Left Content */}
@@ -26,7 +26,7 @@ export default function JournalScope() {
             </p>
 
             {/* Button */}
-            <button className="inline-flex mt-10 items-center gap-[10px] border border-[#ACB1C6] px-[15px] py-[16.5px] rounded-[50px] text-[16px] font-normal text-[#2A2C31] hover:border-[#273D89] hover:text-[#273D89] transition-all w-[150px] h-[55px] justify-center">
+            <button className="inline-flex mt-10 items-center gap-[10px] border border-[#ACB1C6] px-[15px] py-[16.5px] rounded-[50px] text-[16px] font-normal text-[#2A2C31] hover:border-[#273D89] hover:text-[#273D89] transition-all w-[150px] h-[55px] justify-center cursor-pointer">
               <span>Detay</span>
               <Icon name="right" size={16} />
             </button>

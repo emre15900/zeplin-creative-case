@@ -59,7 +59,7 @@ export default function CurrentArticles() {
   return (
     <section className="py-16 bg-white">
       <div className="container">
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-10">
           {/* Left - Large Journal Card */}
           <div className="lg:w-[466px] flex-shrink-0 relative">
             <div className="relative bg-white border-[5px] border-[#FFD9DA] rounded-[25px] p-[10px] shadow-[0_5px_15px_rgba(190,190,190,0.25)] overflow-hidden">
@@ -104,7 +104,7 @@ export default function CurrentArticles() {
                 <p className="text-[16px] text-[#676A73]">Profuture Teknoloji Dergisi</p>
                 <h2 className="text-[20px] font-bold text-[#DB0D15]">Güncel Yazılar</h2>
               </div>
-              <button className="flex items-center gap-[10px] cursor-pointer bg-white  border border-[#ACB1C6] px-[15px] py-[16.5px] rounded-full text-[16px] font-semibold text-[#2A2C31] hover:border-[#273D89] transition-all">
+              <button className="flex items-center gap-[10px] cursor-pointer bg-white border border-[#ACB1C6] px-[15px] py-[16.5px] rounded-full text-[16px] font-semibold text-[#2A2C31] hover:border-[#273D89] transition-all">
                 Tümünü Görüntüle
                 <Icon name="right" size={16} />
               </button>
