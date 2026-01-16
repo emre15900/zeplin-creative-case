@@ -5,11 +5,11 @@ import Icon from './Icon';
 
 export default function CallForPapers() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container">
-        {/* Main Card Container - matching Figma specs */}
+    <section className="py-16 bg-white overflow-hidden">
+      <div className="container overflow-visible">
+        {/* Main Card Container */}
         <div 
-          className="relative overflow-hidden"
+          className="relative overflow-visible"
           style={{
             borderRadius: '35px',
             minHeight: '439px',
@@ -18,22 +18,30 @@ export default function CallForPapers() {
             backgroundPosition: 'center'
           }}
         >
-
-          <div className="relative flex items-center h-full">
-            {/* Left - Decorative Image Area */}
-            <div className="hidden lg:block w-[514px] h-[439px] flex-shrink-0 relative overflow-hidden">
+          <div className="relative flex items-center h-full overflow-visible">
+            {/* Left - Stacked Magazine Covers */}
+            <div 
+              className="hidden lg:block absolute z-10"
+              style={{
+                left: '0px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '420px',
+                height: '400px'
+              }}
+            >
               <Image
                 src="/img/CallForPapersLeft.svg"
-                alt="Decorative illustration"
+                alt="Dergi Kapakları"
                 fill
-                className="object-cover object-right"
+                className="object-contain object-left"
                 priority
               />
             </div>
 
             {/* Center - Content */}
-            <div className="flex-1 py-12 px-8 lg:px-4 text-center">
-              {/* Promotion Icon - rotated 30 degrees as per Figma */}
+            <div className="flex-1 py-12 px-8 lg:pl-[400px] lg:pr-[320px] text-center">
+              {/* Promotion Icon */}
               <div className="flex justify-center mb-4">
                 <div 
                   className="w-10 h-10 flex items-center justify-center"
@@ -53,23 +61,23 @@ export default function CallForPapers() {
               
               {/* Title */}
               <h3 
-                className="text-[22px] lg:text-[26px] font-bold mb-8 leading-tight"
+                className="text-[22px] lg:text-[26px] font-bold mb-6 leading-tight"
                 style={{ color: '#273D89' }}
               >
-                Türkiye Ulusal Dijital Veri ve Altyapıları
+                Türkiye Ulusal Dijital Veri ve  Altyapıları
               </h3>
               
               {/* Description */}
               <p 
-                className="text-[15px] leading-[25px] mb-8 max-w-[555px] mx-auto"
+                className="text-[15px] leading-[25px] mb-8 max-w-[480px] mx-auto"
                 style={{ color: '#2A2C31' }}
               >
                 Bu dosya kapsamında; ulusal ölçekte dijital veri yönetimi, kamu ve özel sektörde teknoloji altyapıları, yapay zekâ uygulamaları, büyük veri analitiği, siber güvenlik, akıllı sistemler ve dijital dönüşüm odaklı özgün, güncel ve disiplinlerarası akademik çalışmalar değerlendirilecektir.
               </p>
 
-              {/* CTA Button - pill shape with 50px radius */}
+              {/* CTA Button */}
               <button 
-                className="inline-flex items-center cursor-pointer justify-center gap-2.5 text-white px-6 py-4 text-[16px] font-semibold hover:opacity-90 transition-all"
+                className="inline-flex items-center cursor-pointer justify-center gap-2.5 text-white px-8 py-4 text-[16px] font-semibold hover:opacity-90 transition-all"
                 style={{ 
                   backgroundColor: '#DB0D15',
                   borderRadius: '50px',
@@ -81,13 +89,21 @@ export default function CallForPapers() {
               </button>
             </div>
 
-            {/* Right - Magazine Cover */}
-            <div className="hidden lg:block w-[306px] flex-shrink-0 relative self-start -mt-[25px]">
+            {/* Right - Magazine Cover - positioned to overflow container */}
+            <div 
+              className="hidden lg:block absolute z-10"
+              style={{
+                right: '47px',
+                top: '38%',
+                transform: 'translateY(-50%)',
+                marginTop: '-10px'
+              }}
+            >
               <div 
-                className="relative w-[306px] h-[465px] overflow-hidden"
+                className="relative w-[280px] h-[420px] overflow-hidden"
                 style={{
-                  borderRadius: '27px',
-                  boxShadow: '0 5px 15px rgba(0, 0, 0, 0.25)'
+                  borderRadius: '20px',
+                  boxShadow: '0 8px 30px rgba(0, 0, 0, 0.2)'
                 }}
               >
                 <Image
