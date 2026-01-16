@@ -5,9 +5,9 @@ import Icon from './Icon';
 export default function Footer() {
   return (
     <footer className="bg-[#161F3C] text-white">
-      <div className="max-w-[1443px] mx-auto! px-6! pt-[61px]!">
+      <div className="container pt-[61px]">
         {/* Main Footer Info */}
-        <div className="flex flex-wrap items-start gap-x-[177px]! gap-y-8!">
+        <div className="flex flex-wrap items-start gap-x-[100px] xl:gap-x-[177px] gap-y-8">
           {/* Editor Info */}
           <div className="flex items-start gap-[17px]">
             <div className="w-[55px] h-[55px] rounded-full border border-[#ACB1C6] flex items-center justify-center flex-shrink-0">
@@ -51,10 +51,10 @@ export default function Footer() {
         </div>
 
         {/* Separator Line */}
-        <div className="h-[0.5px] bg-[#ACB1C6] mt-[40px]!" />
+        <div className="h-[0.5px] bg-[#ACB1C6] mt-[40px]" />
 
         {/* Legal Text */}
-        <div className="mt-[40px]! pb-[31px]!">
+        <div className="mt-[40px] pb-[31px]">
           <p className="text-[14px] text-white text-center leading-[20px]">
             Bu sitede yer alan tüm yazılı, görsel ve uygulama içerikleri kaynak gösterilmeden kullanılamaz. Site içerisinde sunulan bilgiler yalnızca bilgilendirme amacıyla hazırlanmış olup, bu bilgilerin kullanımından doğabilecek her türlü sorumluluk kullanıcıya aittir. Siteye erişim sağlayan kullanıcılar, bu şartları okumuş, anlamış ve kabul etmiş sayılır.
           </p>

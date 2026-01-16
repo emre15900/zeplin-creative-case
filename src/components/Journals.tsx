@@ -135,22 +135,31 @@ export default function Journals() {
     <section className="pb-16 bg-[#FBFBFB]">
       <div className="container">
         {/* Header */}
-        <div className="flex items-end gap-[19px] mb-10">
-          {/* Title Section */}
-          <div className="flex flex-col gap-3">
-            <p className="text-[14px] text-[#676A73]">Sayılar</p>
-            <h2 className="text-[20px] font-bold text-[#273D89]">Dergiler</h2>
+        <div className="flex items-end justify-between mb-10">
+          {/* Left - Title Section with Nav Arrows */}
+          <div className="flex items-end gap-[19px]">
+            {/* Title Section */}
+            <div className="flex flex-col gap-3">
+              <p className="text-[14px] text-[#676A73]">Sayılar</p>
+              <h2 className="text-[20px] font-bold text-[#273D89]">Dergiler</h2>
+            </div>
+            
+            {/* Nav Arrows */}
+            <div className="flex items-center gap-3 pb-1">
+              <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group">
+                <Icon name="left" size={14} className="text-[#ACB1C6] group-hover:text-[#676A73]" />
+              </button>
+              <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
+                <Icon name="right" size={14} className="invert" />
+              </button>
+            </div>
           </div>
-          
-          {/* Nav Arrows */}
-          <div className="flex items-center gap-3 pb-1">
-            <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group">
-              <Icon name="left" size={14} className="text-[#ACB1C6] group-hover:text-[#676A73]" />
-            </button>
-            <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
-              <Icon name="right" size={14} className="invert" />
-            </button>
-          </div>
+
+          {/* Right - View All Link */}
+          <button className="flex items-center gap-2 text-[16px] text-[#273D89] font-medium hover:underline cursor-pointer">
+            Tümünü Görüntüle
+            <Icon name="right" size={16} className="text-[#273D89]" />
+          </button>
         </div>
 
         {/* Journals Grid */}
