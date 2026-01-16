@@ -66,6 +66,7 @@ export default function CurrentArticles() {
               date="Aralık 2022"
               issueNumber="01"
               isNew={true}
+              ribbonText="Son Sayı"
             />
           </div>
 
@@ -74,10 +75,10 @@ export default function CurrentArticles() {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div>
-                <p className="text-xs text-[var(--accent-red)] font-medium mb-1">Profuture Teknoloji Dergisi</p>
-                <h2 className="text-xl font-bold text-[#111B2B]">Güncel Yazılar</h2>
+                <p className="text-[12px] text-[var(--accent-red)] font-medium mb-1">Profuture Teknoloji Dergisi</p>
+                <h2 className="text-[22px] font-bold text-[#111B2B]">Güncel Yazılar</h2>
               </div>
-              <button className="flex items-center gap-2 text-sm text-[var(--primary-blue)] font-medium hover:underline">
+              <button className="flex items-center gap-2 text-[13px] text-[var(--primary-blue)] font-medium hover:underline">
                 Tümünü İnceleyin
                 <Icon name="arrow-right" size={16} />
               </button>

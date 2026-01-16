@@ -8,7 +8,9 @@ export default function CardShowcase() {
   return (
     <section className="py-16 bg-[#FAFAFA]">
       <div className="container">
-        <h2 className="text-3xl font-bold text-[#111B2B] mb-10 font-serif italic">Cards</h2>
+        <h2 className="text-[28px] font-bold text-[#111B2B] mb-10 border-b-2 border-[var(--primary-blue)] w-fit">
+          Cards
+        </h2>
         
         <div className="space-y-6 max-w-[900px]">
           {/* Article Card */}

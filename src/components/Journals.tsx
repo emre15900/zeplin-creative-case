@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Icon from './Icon';
 
 interface JournalItem {
@@ -44,17 +45,20 @@ const journals: JournalItem[] = [
 
 function JournalCard({ journal }: { journal: JournalItem }) {
   return (
-    <div className="bg-white border-2 border-slate-100 rounded-xl overflow-hidden hover:border-[var(--primary-blue)] hover:shadow-lg transition-all">
+    <div className="bg-white border-2 border-slate-100 rounded-[18px] overflow-hidden hover:border-[var(--primary-blue)] hover:shadow-lg transition-all">
       {/* Image */}
-      <div className="relative h-[160px] bg-gradient-to-br from-[#0A1742] via-[#1a2d6b] to-[#273D89] overflow-hidden">
-        {/* Tech decoration */}
+      <div className="relative h-[170px] bg-gradient-to-br from-[#0A1742] via-[#1a2d6b] to-[#273D89] overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full border-2 border-cyan-400/20"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-cyan-400/15"></div>
+          <div className="absolute top-6 left-6 flex items-center gap-1.5 text-white">
+            <div className="w-5 h-5 rounded bg-white flex items-center justify-center">
+              <span className="text-[var(--primary-blue)] text-[8px] font-bold">P</span>
+            </div>
+            <span className="text-[10px] font-bold">profuture</span>
+          </div>
         </div>
         <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center shadow-lg">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-100/50 to-blue-100/50 border border-slate-300/50"></div>
+          <div className="relative w-[120px] h-[120px]">
+            <Image src="/globe.svg" alt="Dijital küre" fill className="object-contain opacity-90" />
           </div>
         </div>
         
@@ -65,24 +69,17 @@ function JournalCard({ journal }: { journal: JournalItem }) {
       </div>
 
       {/* Content */}
-      <div className="p-3.5">
+      <div className="p-4">
         {/* Header */}
-        <div className="flex items-center gap-2 mb-2.5">
-          <div className="w-5 h-5 rounded bg-[var(--primary-blue)] flex items-center justify-center">
-            <span className="text-white text-[9px] font-bold">P</span>
-          </div>
-          <span className="text-[11px] font-semibold text-[var(--primary-blue)]">profuture</span>
-          <Icon name="check" size={12} className="text-[var(--accent-green)]" />
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-[10px] text-[var(--text-secondary)] border border-[var(--border-light)] px-2 py-0.5 rounded">Dergi</span>
         </div>
-
-        {/* Category */}
-        <p className="text-[10px] text-[var(--text-secondary)] mb-1">Dergi</p>
         
         {/* Title */}
-        <h4 className="text-[13px] font-semibold text-[var(--text-dark)] mb-2.5 leading-tight">{journal.title}</h4>
+        <h4 className="text-[14px] font-semibold text-[var(--text-dark)] mb-2.5 leading-tight">{journal.title}</h4>
 
         {/* Meta */}
-        <div className="flex flex-wrap gap-2.5 text-[10px] text-[var(--text-secondary)] mb-3">
+        <div className="flex flex-wrap gap-2.5 text-[11px] text-[var(--text-secondary)] mb-4">
           <div className="flex items-center gap-1">
             <Icon name="cilt" size={11} />
             <span>Cilt: {journal.volume}</span>
@@ -98,18 +95,18 @@ function JournalCard({ journal }: { journal: JournalItem }) {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-slate-100 pt-2.5">
+        <div className="border-t border-slate-100 pt-3">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] text-[var(--primary-blue)] font-medium">İçeriği Görüntüle</span>
-            <div className="flex items-center gap-1.5">
-              <button className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] hover:text-white transition-all group">
-                <Icon name="eye" size={12} />
+            <span className="text-[11px] text-[var(--primary-blue)] font-medium">İçeriği Görüntüle</span>
+            <div className="flex items-center gap-2">
+              <button className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group">
+                <Icon name="eye" size={12} className="group-hover:invert" />
               </button>
-              <button className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] hover:text-white transition-all group">
-                <Icon name="download" size={12} />
+              <button className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group">
+                <Icon name="download" size={12} className="group-hover:invert" />
               </button>
-              <button className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] hover:text-white transition-all group">
-                <Icon name="right" size={12} />
+              <button className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group">
+                <Icon name="right" size={12} className="group-hover:invert" />
               </button>
             </div>
           </div>
@@ -126,10 +123,10 @@ export default function Journals() {
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="text-[10px] text-[var(--text-secondary)] mb-0.5">Sayılar</p>
-            <h2 className="text-lg font-bold text-[var(--text-dark)]">Dergiler</h2>
+            <p className="text-[11px] text-[var(--text-secondary)] mb-0.5">Sayılar</p>
+            <h2 className="text-[18px] font-bold text-[var(--text-dark)]">Dergiler</h2>
           </div>
-          <button className="flex items-center gap-1.5 text-xs text-[var(--primary-blue)] font-medium hover:underline">
+          <button className="flex items-center gap-1.5 text-[12px] text-[var(--primary-blue)] font-medium hover:underline">
             Tümünü Görüntüle
             <Icon name="arrow-right" size={14} />
           </button>

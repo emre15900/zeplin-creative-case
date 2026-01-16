@@ -24,14 +24,14 @@ export default function CookieBanner({ onDecline, onAllow }: CookieBannerProps) 
   if (!isVisible) return null;
 
   return (
-    <div className="bg-[#F5F5F5] border border-[#E0E4E6] rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <div className="bg-white border border-[#E0E4E6] rounded-[20px] p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-sm">
       {/* Icon */}
-      <div className="w-10 h-10 rounded-full bg-white border border-[#E0E4E6] flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 rounded-full bg-[var(--primary-blue)]/10 border border-[#E0E4E6] flex items-center justify-center flex-shrink-0">
         <Icon name="info" size={20} />
       </div>
 
       {/* Text */}
-      <div className="flex-1 text-sm text-[#676A73]">
+      <div className="flex-1 text-[13px] text-[#676A73]">
         We use cookies to ensure that we give you the best experience on our website.{' '}
         <a href="/cookies" className="text-[var(--primary-blue)] hover:underline">
           Read cookies policies.
@@ -42,13 +42,13 @@ export default function CookieBanner({ onDecline, onAllow }: CookieBannerProps) 
       <div className="flex items-center gap-2 flex-shrink-0">
         <button
           onClick={handleDecline}
-          className="px-5 py-2.5 rounded-lg border border-[#ACB1C6] text-sm font-medium text-[#2A2C31] hover:border-[var(--primary-blue)] hover:text-[var(--primary-blue)] transition-all"
+          className="px-5 py-2.5 rounded-full border border-[#ACB1C6] text-[13px] font-medium text-[#2A2C31] hover:border-[var(--primary-blue)] hover:text-[var(--primary-blue)] transition-all"
         >
           Decline
         </button>
         <button
           onClick={handleAllow}
-          className="px-5 py-2.5 rounded-lg bg-[var(--primary-blue)] text-white text-sm font-medium hover:bg-[var(--primary-blue-dark)] transition-colors"
+          className="px-5 py-2.5 rounded-full bg-[var(--primary-blue)] text-white text-[13px] font-medium hover:bg-[var(--primary-blue-dark)] transition-colors"
         >
           Allow
         </button>

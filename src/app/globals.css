@@ -3,7 +3,7 @@
 :root {
   /* Primary Colors - from design */
   --primary-blue: #273D89;
-  --primary-blue-dark: #0A1742;
+  --primary-blue-dark: #0B1542;
   --primary-blue-light: #3d5aa9;
   
   /* Accent Colors */
@@ -13,14 +13,14 @@
   --accent-orange: #D81542;
   
   /* Background Colors */
-  --background: #FAFAFA;
+  --background: #FFFFFF;
   --background-light: #FFFFFF;
-  --background-card: #F5F5F5;
+  --background-card: #F5F7FB;
   --background-yellow: #FBFBE3;
   --background-blue: #C0ECFF;
   
   /* Text Colors */
-  --text-dark: #111B2B;
+  --text-dark: #0B1542;
   --text-primary: #2A2C31;
   --text-secondary: #676A73;
   --text-muted: #414D63;
@@ -83,7 +83,7 @@ h1, .h1 { font-size: 32px; line-height: 38px; }
 h2, .h2 { font-size: 28px; line-height: 36px; }
 
 /* H3: 26px / 32px */
-h3, .h3 { font-size: 26px; line-height: 32px; color: var(--accent-red); }
+h3, .h3 { font-size: 26px; line-height: 32px; color: var(--accent-green); }
 
 /* H4: 24px / 30px */
 h4, .h4 { font-size: 24px; line-height: 30px; }
@@ -95,9 +95,9 @@ h5, .h5 { font-size: 22px; line-height: 28px; color: var(--text-secondary); }
 h6, .h6 { font-size: 20px; line-height: 26px; }
 
 .container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 0 64px;
 }
 
 @media (max-width: 1280px) {

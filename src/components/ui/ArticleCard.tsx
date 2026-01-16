@@ -29,8 +29,8 @@ export default function ArticleCard({
   onView,
 }: ArticleCardProps) {
   return (
-    <div className="bg-white border-2 border-[#E0E4E6] rounded-[20px] p-5 hover:border-[var(--primary-blue)] hover:shadow-lg transition-all">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="bg-white border-2 border-[#E4E9F2] rounded-[18px] p-5 hover:border-[var(--primary-blue)] hover:shadow-lg transition-all">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
         {/* Left Content */}
         <div className="flex-1">
           {/* Badges */}
@@ -38,7 +38,7 @@ export default function ArticleCard({
             {badges.map((badge, index) => (
               <span
                 key={index}
-                className={`px-3 py-1 rounded text-xs font-medium ${badgeStyles[badge.type]}`}
+                className={`px-3 py-1 rounded text-[11px] font-medium ${badgeStyles[badge.type]}`}
               >
                 {badge.label}
               </span>
@@ -46,13 +46,13 @@ export default function ArticleCard({
           </div>
 
           {/* Title */}
-          <h4 className="flex items-start gap-2 text-base font-semibold text-[#111B2B] mb-2">
+          <h4 className="flex items-start gap-2 text-[15px] font-semibold text-[#111B2B] mb-2">
             <Icon name="pdf" size={20} className="flex-shrink-0 mt-0.5" />
             {title}
           </h4>
 
           {/* Meta */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-[#676A73]">
+          <div className="flex flex-wrap items-center gap-4 text-[12px] text-[#676A73]">
             <div className="flex items-center gap-1.5">
               <Icon name="pdf" size={16} />
               <span>Sayfa: <strong className="text-[#111B2B]">{pages}</strong></span>
@@ -68,19 +68,19 @@ export default function ArticleCard({
         <div className="flex items-center gap-2">
           <button
             onClick={onCopy}
-            className="w-12 h-12 rounded-lg border border-[#ACB1C6] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group"
+            className="w-10 h-10 rounded-full border border-[#ACB1C6] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group"
           >
             <Icon name="copy" size={20} className="group-hover:invert" />
           </button>
           <button
             onClick={onDownload}
-            className="w-12 h-12 rounded-lg border border-[#ACB1C6] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group"
+            className="w-10 h-10 rounded-full border border-[#ACB1C6] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group"
           >
             <Icon name="download" size={20} className="group-hover:invert" />
           </button>
           <button
             onClick={onView}
-            className="flex items-center gap-2 bg-[var(--primary-blue)] text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-[var(--primary-blue-dark)] transition-colors"
+            className="flex items-center gap-2 bg-[var(--primary-blue)] text-white px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-[var(--primary-blue-dark)] transition-colors"
           >
             <Icon name="eye" size={18} className="invert" />
             Görüntüle

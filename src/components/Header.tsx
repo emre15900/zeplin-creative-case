@@ -19,7 +19,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[#0A1742] text-white">
-        <div className="container flex items-center justify-between py-2 text-sm">
+        <div className="container flex items-center justify-between py-2 text-[11px]">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Icon name="email" size={16} className="invert opacity-70" />
@@ -36,16 +36,15 @@ export default function Header() {
 
       {/* Main Header */}
       <div className="bg-white shadow-sm">
-        <nav className="container flex items-center justify-between py-3">
+        <nav className="container flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-lg bg-[var(--primary-blue)] flex items-center justify-center">
               <span className="text-white font-bold text-base">P</span>
             </div>
-            <div>
-              <h1 className="text-sm font-semibold text-[var(--primary-blue)]">
-                profuture
-              </h1>
+            <div className="leading-none">
+              <p className="text-[13px] font-semibold text-[var(--primary-blue)]">profuture</p>
+              <span className="text-[10px] text-[var(--text-secondary)]">Teknoloji Dergisi</span>
             </div>
           </Link>
 
@@ -55,7 +54,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-[var(--text-primary)] hover:text-[var(--primary-blue)] transition-colors text-[13px] font-medium"
+                className="text-[var(--text-primary)] hover:text-[var(--primary-blue)] transition-colors text-[12px] font-medium"
               >
                 {item.name}
               </Link>
@@ -65,20 +64,20 @@ export default function Header() {
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-2">
             {/* Dergi Kurulu Button */}
-            <Link href="/kurul" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+            <Link href="/kurul" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-[12px] font-medium hover:opacity-90 transition-opacity">
               <Icon name="kurul" size={18} className="invert" />
               Dergi Kurulu
             </Link>
             
             {/* Yazar Rehberi Button */}
-            <Link href="/yazar-rehberi" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+            <Link href="/yazar-rehberi" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-[12px] font-medium hover:opacity-90 transition-opacity">
               <Icon name="author" size={18} className="invert" />
               Yazar Rehberi
             </Link>
 
             {/* Search Button */}
-            <button className="w-9 h-9 rounded-full border border-[var(--border-light)] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] hover:text-white transition-all group">
-              <Icon name="search" size={16} />
+            <button className="w-9 h-9 rounded-full border border-[var(--border-light)] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] transition-all group">
+              <Icon name="search" size={16} className="group-hover:invert" />
             </button>
           </div>
 
