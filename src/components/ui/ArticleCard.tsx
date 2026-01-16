@@ -23,8 +23,9 @@ export default function ArticleCard({
 }: ArticleCardProps) {
   return (
     <div className="bg-white border-2 border-[#E0E3F2] rounded-[12px] sm:rounded-[16px] p-4 sm:p-5 hover:shadow-md hover:border-[#273D89] transition-all">
-      <div className="flex flex-col gap-4 sm:gap-6">
-        {/* Top Content */}
+      {/* Desktop: Horizontal layout | Mobile: Vertical layout */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+        {/* Left Content */}
         <div className="flex-1">
           {/* Top row - Badges */}
           <div className="flex items-start gap-2 sm:gap-[11px] mb-3">
@@ -75,8 +76,8 @@ export default function ArticleCard({
           </div>
         </div>
 
-        {/* Bottom Actions */}
-        <div className="flex items-center gap-2 sm:gap-[7px] pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-100">
+        {/* Right Actions - stays on right for desktop, bottom for mobile */}
+        <div className="flex items-center gap-2 sm:gap-[7px] pt-3 md:pt-0 border-t md:border-t-0 border-gray-100 flex-shrink-0">
           {/* Email button */}
           <button 
             onClick={onEmail}
@@ -99,7 +100,7 @@ export default function ArticleCard({
             className="flex items-center gap-2 sm:gap-[10px] bg-[#273D89] text-white px-3 sm:px-[15px] py-3 sm:py-[15.5px] rounded-full text-[13px] sm:text-[16px] font-semibold hover:bg-[#1e3070] transition-all cursor-pointer"
           >
             <Icon name="eye" size={20} className="invert brightness-0" />
-            <span className="hidden xs:inline sm:inline">Görüntüle</span>
+            Görüntüle
           </button>
         </div>
       </div>
