@@ -132,7 +132,7 @@ function JournalCard({ journal }: { journal: JournalItem }) {
 
 export default function Journals() {
   return (
-    <section className="pb-16 bg-[#FBFBFB]">
+    <section id="sayilar" className="pb-16 bg-[#FBFBFB]">
       <div className="container">
         {/* Header */}
         <div className="flex items-end justify-between mb-10">

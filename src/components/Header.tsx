@@ -6,11 +6,11 @@ import Icon from './Icon';
 import Image from 'next/image';
 
 const navItems = [
-  { name: 'Amaç ve Kapsam', href: '/amac-kapsam' },
-  { name: 'Etik İlkeler ve Yayın Politikası', href: '/etik-ilkeler' },
-  { name: 'Makale Çağrıları', href: '/makale-cagrilari' },
-  { name: 'Sayılar', href: '/sayilar' },
-  { name: 'İletişim', href: '/iletisim' },
+  { name: 'Amaç ve Kapsam', href: '#amac-kapsam' },
+  { name: 'Etik İlkeler ve Yayın Politikası', href: '#etik-ilkeler' },
+  { name: 'Makale Çağrıları', href: '#makale-cagrilari' },
+  { name: 'Sayılar', href: '#sayilar' },
+  { name: 'İletişim', href: '#iletisim' },
 ];
 
 // Home icon component with green color
@@ -65,11 +65,35 @@ const MessageIcon = () => (
   </svg>
 );
 
+// Smooth scroll function
+const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  if (href.startsWith('#')) {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const headerHeight = 135; // Header height
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+};
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleMobileClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    handleSmoothScroll(e, href);
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <header className="w-full relative bg-white" style={{ height: '135px', boxShadow: '0 5px 15px rgba(136,136,136,0.25)' }}>
+    <header className="w-full relative bg-white sticky top-0 z-50" style={{ height: '135px', boxShadow: '0 5px 15px rgba(136,136,136,0.25)' }}>
       {/* Left Blue Rectangle - Logo Area */}
       <div
         className="absolute left-0 top-0 h-full hidden lg:block"
@@ -182,24 +206,26 @@ export default function Header() {
         {/* Left side - Home icon and Menu Items */}
         <div className="flex items-center justify-between w-full">
           {/* Home Icon */}
-          <Link
-            href="/"
-            className="flex items-center justify-center mr-6 hover:opacity-80 transition-opacity"
+          <a
+            href="#hero"
+            onClick={(e) => handleSmoothScroll(e, '#hero')}
+            className="flex items-center justify-center mr-6 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <HomeIcon size={24} />
-          </Link>
+          </a>
 
           {/* Menu Items */}
           <nav className="flex items-center gap-5">
-            {navItems.map((item, index) => (
-              <Link
+            {navItems.map((item) => (
+              <a
                 key={item.name}
                 href={item.href}
-                className="text-[16px] font-normal transition-colors hover:text-[#273D89] whitespace-nowrap px-[10px] first:pl-0"
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className="text-[16px] font-normal transition-colors hover:text-[#273D89] whitespace-nowrap px-[10px] first:pl-0 cursor-pointer"
                 style={{ color: '#2A2C31' }}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </nav>
         </div>
@@ -208,7 +234,7 @@ export default function Header() {
         <div className="flex items-center gap-[5px]" style={{ marginLeft: '20px' }}>
           {/* Dergi Kurulu Button */}
           <Link
-            href="/kurul"
+            href="/"
             className="flex items-center gap-[10px] text-white rounded-[50px] font-medium transition-opacity hover:opacity-90"
             style={{
               backgroundColor: '#273D89',
@@ -224,7 +250,7 @@ export default function Header() {
 
           {/* Yazar Rehberi Button */}
           <Link
-            href="/yazar-rehberi"
+            href="/"
             className="flex items-center gap-[10px] text-white rounded-[50px] font-medium transition-opacity hover:opacity-90"
             style={{
               backgroundColor: '#A8B95E',
@@ -240,7 +266,7 @@ export default function Header() {
 
           {/* Search Button */}
           <button
-            className="flex items-center justify-center rounded-full transition-all hover:border-[#273D89]"
+            className="flex items-center cursor-pointer justify-center rounded-full transition-all hover:border-[#273D89]"
             style={{
               padding: '15px',
               border: '1px solid #ACB1C6',
@@ -265,27 +291,27 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 top-[135px] bg-white lg:hidden animate-fade-in overflow-y-auto" style={{ zIndex: 50 }}>
           <div className="container py-6 flex flex-col gap-2">
-            <Link
-              href="/"
-              className="text-[#2A2C31] hover:text-[#273D89] py-3 font-medium text-base border-b border-gray-100 flex items-center gap-3"
-              onClick={() => setMobileMenuOpen(false)}
+            <a
+              href="#hero"
+              className="text-[#2A2C31] hover:text-[#273D89] py-3 font-medium text-base border-b border-gray-100 flex items-center gap-3 cursor-pointer"
+              onClick={(e) => handleMobileClick(e, '#hero')}
             >
               <HomeIcon size={20} />
               Anasayfa
-            </Link>
+            </a>
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
                 href={item.href}
-                className="text-[#2A2C31] hover:text-[#273D89] py-3 font-medium text-base border-b border-gray-100"
-                onClick={() => setMobileMenuOpen(false)}
+                className="text-[#2A2C31] hover:text-[#273D89] py-3 font-medium text-base border-b border-gray-100 cursor-pointer"
+                onClick={(e) => handleMobileClick(e, item.href)}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
             <div className="flex flex-col gap-3 mt-6">
               <Link
-                href="/kurul"
+                href="/"
                 className="flex items-center justify-center gap-3 bg-[#273D89] text-white px-6 py-4 rounded-full text-base font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -293,7 +319,7 @@ export default function Header() {
                 Dergi Kurulu
               </Link>
               <Link
-                href="/yazar-rehberi"
+                href="/"
                 className="flex items-center justify-center gap-3 bg-[#A8B95E] text-white px-6 py-4 rounded-full text-base font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >

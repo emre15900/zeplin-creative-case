@@ -5,7 +5,9 @@ import Icon from './Icon';
 
 export default function JournalScope() {
   return (
-    <section className="relative pt-20 pb-16 bg-white overflow-visible -mt-8 z-10">
+    <section id="amac-kapsam" className="relative pt-20 pb-16 bg-white overflow-visible -mt-8 z-10">
+      {/* Anchor for Etik İlkeler */}
+      <div id="etik-ilkeler" className="absolute -top-[135px]" />
       <div className="container">
         <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-0">
           {/* Left Content */}

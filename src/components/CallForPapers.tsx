@@ -5,7 +5,7 @@ import Icon from './Icon';
 
 export default function CallForPapers() {
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <section id="makale-cagrilari" className="py-16 bg-white overflow-hidden">
       <div className="container overflow-visible">
         {/* Main Card Container */}
         <div 

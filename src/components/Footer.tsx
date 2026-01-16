@@ -4,7 +4,7 @@ import Icon from './Icon';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#161F3C] text-white">
+    <footer id="iletisim" className="bg-[#161F3C] text-white">
       <div className="container pt-[61px]">
         {/* Main Footer Info */}
         <div className="flex flex-wrap items-start gap-x-[100px] xl:gap-x-[177px] gap-y-8">

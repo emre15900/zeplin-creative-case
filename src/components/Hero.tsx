@@ -5,6 +5,7 @@ import Icon from './Icon';
 export default function Hero() {
   return (
     <section 
+      id="hero"
       className="relative flex items-center z-0 bg-cover bg-center bg-no-repeat"
       style={{ 
         backgroundImage: 'url(/img/slider.svg)', 
