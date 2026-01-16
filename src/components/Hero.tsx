@@ -16,11 +16,6 @@ export default function Hero() {
         />
       </div>
 
-      {/* Lock Icon */}
-      <div className="absolute top-20 right-[20%] z-0 opacity-20">
-        <Icon name="Mask group" size={300} className="invert" />
-      </div>
-
       <div className="container relative z-10 py-16">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}
@@ -59,15 +54,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Magazine Cover */}
-          <div className="flex-1 flex justify-center lg:justify-end">
-            <div className="relative group">
-              <div className="relative w-[340px] mt-5 h-[450px] bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform rotate-[-6deg] transition-transform group-hover:rotate-0 duration-500">
-                <Image src="/img/dergison.svg" alt="Cover Visual" fill className="object-cover opacity-80" />
-              </div>
-
-            </div>
-          </div>
         </div>
       </div>
     </section>
