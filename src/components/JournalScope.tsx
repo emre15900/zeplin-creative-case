@@ -36,7 +36,7 @@ export default function JournalScope() {
           <div className="flex-1 flex justify-end relative">
             <div className="relative w-[739px] h-[696px]">
               <Image 
-                src="/img/dergison.svg" 
+                src="/img/journal-scope.svg" 
                 alt="Profuture Teknoloji Dergisi" 
                 fill 
                 className="object-cover object-center"
