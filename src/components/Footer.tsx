@@ -1,140 +1,46 @@
 'use client';
 
-import Link from 'next/link';
 import Icon from './Icon';
-
-const footerLinks = {
-  hizliErisim: [
-    { name: 'Ana Sayfa', href: '/' },
-    { name: 'Hakkında', href: '/hakkinda' },
-    { name: 'Sayılar', href: '/sayilar' },
-    { name: 'Yazarlara Bilgi', href: '/yazarlara-bilgi' },
-    { name: 'İletişim', href: '/iletisim' },
-  ],
-  politikalar: [
-    { name: 'Yayın Politikası', href: '/yayin-politikasi' },
-    { name: 'Etik Kurallar', href: '/etik-kurallar' },
-    { name: 'Telif Hakları', href: '/telif-haklari' },
-    { name: 'Gizlilik Politikası', href: '/gizlilik' },
-  ],
-};
 
 export default function Footer() {
   return (
     <footer className="relative">
       {/* Main Footer */}
-      <div className="bg-[var(--primary-blue-dark)] text-white">
-        <div className="container py-14">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {/* Brand */}
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
-                  <span className="text-[var(--primary-blue)] font-bold text-lg">P</span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">profuture</h3>
-                  <p className="text-xs text-white/60">Teknoloji Dergisi</p>
-                </div>
+      <div className="bg-[#0A1742] text-white">
+        <div className="container py-8">
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Editor Info */}
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="author" size={18} className="invert opacity-80" />
               </div>
-              <p className="text-white/70 text-sm leading-relaxed mb-5">
-                Türkiye&apos;nin önde gelen hakemli akademik teknoloji dergisi.
-              </p>
-              
-              {/* Social Links */}
-              <div className="flex gap-2">
-                <a href="#" className="btn-icon-circle border-white/20 hover:bg-white hover:border-white">
-                  <Icon name="linkedin" size={18} />
-                </a>
-                <button className="btn-icon-circle border-white/20 hover:bg-white hover:border-white">
-                  <span className="text-lg font-bold">𝕏</span>
-                </button>
-                <button className="btn-icon-circle border-white/20 hover:bg-white hover:border-white">
-                  <span className="text-lg">in</span>
-                </button>
-                <button className="btn-icon-circle border-white/20 hover:bg-white hover:border-white">
-                  <span className="text-lg">f</span>
-                </button>
-                <button className="btn-icon-circle border-white/20 hover:bg-white hover:border-white">
-                  <span className="text-lg">▶</span>
-                </button>
+              <div>
+                <p className="text-[10px] text-white/50 mb-0.5">Dergi Editörü</p>
+                <p className="text-sm font-medium">Prof. Dr. Elif Başkaya Acar</p>
+                <p className="text-[10px] text-white/60 mt-0.5">editor@profuture.com</p>
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-semibold mb-5 relative">
-                Hızlı Erişim
-                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-[var(--accent-green)]"></span>
-              </h4>
-              <ul className="space-y-2.5">
-                {footerLinks.hizliErisim.map((link) => (
-                  <li key={link.name}>
-                    <Link 
-                      href={link.href}
-                      className="text-white/70 hover:text-white transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            {/* Email */}
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="email" size={18} className="invert opacity-80" />
+              </div>
+              <div>
+                <p className="text-[10px] text-white/50 mb-0.5">Mail Adresi</p>
+                <p className="text-sm font-medium">profuture@gmail.com</p>
+              </div>
             </div>
 
-            {/* Policies */}
-            <div>
-              <h4 className="font-semibold mb-5 relative">
-                Politikalar
-                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-[var(--accent-red)]"></span>
-              </h4>
-              <ul className="space-y-2.5">
-                {footerLinks.politikalar.map((link) => (
-                  <li key={link.name}>
-                    <Link 
-                      href={link.href}
-                      className="text-white/70 hover:text-white transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="font-semibold mb-5 relative">
-                İletişim
-                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-[var(--primary-blue)]"></span>
-              </h4>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Icon name="email" size={18} className="invert opacity-70 mt-0.5" />
-                  <div>
-                    <p className="text-xs text-white/50">Dergi Editörü</p>
-                    <p className="text-sm">Prof. Dr. Elif Başkaya Acar</p>
-                    <a href="mailto:editor@profuture.com" className="text-sm text-[var(--accent-green)]">
-                      editor@profuture.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <Icon name="phone" size={18} className="invert opacity-70 mt-0.5" />
-                  <div>
-                    <p className="text-xs text-white/50">Telefon</p>
-                    <p className="text-sm">+90 (312) 000 00 00</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Icon name="location" size={18} className="invert opacity-70 mt-0.5" />
-                  <div>
-                    <p className="text-xs text-white/50">Adres</p>
-                    <p className="text-sm">Ankara, Türkiye</p>
-                  </div>
-                </div>
+            {/* Address */}
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="location" size={18} className="invert opacity-80" />
+              </div>
+              <div>
+                <p className="text-[10px] text-white/50 mb-0.5">Profuture Teknoloji Yayınevi</p>
+                <p className="text-sm font-medium">Ahmet Kemal Mahallesi 1345, Cadde No: 10</p>
+                <p className="text-xs text-white/80">Çankaya/Ankara</p>
               </div>
             </div>
           </div>
@@ -143,14 +49,19 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="bg-[var(--accent-red)] text-white">
-        <div className="container py-3 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-white/90">
-            © 2025 Profuture Teknoloji Dergisi. Tüm hakları saklıdır.
+        <div className="container py-2.5">
+          <p className="text-[9px] text-white/90 leading-relaxed">
+            Bu sitenin yeli olan tüm yazılı, görsel ve sayısal içeriklerin haklar Profuture&apos;nun korunmaktadır. Skor içeriklerde yer alan bilgilerim öğretim amaçlı kullanılması amacıyla hazırlanmış olup, Ticari faaliyetlerde için sora düşünülmelerde kullanılmaması rica olunur. Daha detaylı bilgi, düzeltme, istimna ve benzer konuları sayı irtik aracı.
           </p>
-          <div className="flex items-center gap-5 text-sm text-white/80">
-            <span>ISSN: 2792-0000</span>
-            <span>DOI: 10.12345/profuture</span>
-          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="bg-[#0A1742] text-white border-t border-white/10">
+        <div className="container py-3 flex flex-col md:flex-row items-center justify-center gap-2">
+          <p className="text-[10px] text-white/60">
+            Profuture Teknoloji - Tüm Hakları Saklıdır © 2025
+          </p>
         </div>
       </div>
     </footer>

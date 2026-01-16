@@ -5,11 +5,10 @@ import Link from 'next/link';
 import Icon from './Icon';
 
 const navItems = [
-  { name: 'Ana Sayfa', href: '/' },
-  { name: 'Hakkında', href: '/hakkinda' },
-  { name: 'Sayılar', href: '/sayilar', hasDropdown: true },
-  { name: 'Yayın Politikası', href: '/yayin-politikasi' },
-  { name: 'Yazarlara Bilgi', href: '/yazarlara-bilgi' },
+  { name: 'Amaç ve Kapsam', href: '/amac-kapsam' },
+  { name: 'Etik İlkeler ve Yayın Politikası', href: '/etik-ilkeler' },
+  { name: 'Makale Çağrıları', href: '/makale-cagrilari' },
+  { name: 'Sayılar', href: '/sayilar' },
   { name: 'İletişim', href: '/iletisim' },
 ];
 
@@ -17,63 +16,81 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <nav className="container flex items-center justify-between py-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-[var(--primary-blue)] flex items-center justify-center">
-            <span className="text-white font-bold text-lg">P</span>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top Bar */}
+      <div className="bg-[#0A1742] text-white">
+        <div className="container flex items-center justify-between py-2 text-sm">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <Icon name="email" size={16} className="invert opacity-70" />
+              <span className="text-white/80">profuture@gmail.com</span>
+            </div>
           </div>
-          <div className="hidden sm:block">
-            <h1 className="text-base font-semibold text-[var(--primary-blue)]">
-              profuture
-            </h1>
-            <p className="text-xs text-[var(--text-secondary)]">Teknoloji Dergisi</p>
+          <div className="hidden md:flex items-center gap-6 text-white/80">
+            <span><strong className="text-[var(--accent-red)]">ISSN:</strong> 045-295</span>
+            <span><strong className="text-white">Başlangıç:</strong> 2025</span>
+            <span><strong className="text-white">Periyot:</strong> Yılda 2 Sayı</span>
           </div>
-        </Link>
+        </div>
+      </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-[var(--text-primary)] hover:text-[var(--primary-blue)] transition-colors flex items-center gap-1 text-sm font-medium"
-            >
-              {item.name}
-              {item.hasDropdown && <Icon name="down" size={16} />}
+      {/* Main Header */}
+      <div className="bg-white shadow-sm">
+        <nav className="container flex items-center justify-between py-3">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-9 h-9 rounded-lg bg-[var(--primary-blue)] flex items-center justify-center">
+              <span className="text-white font-bold text-base">P</span>
+            </div>
+            <div>
+              <h1 className="text-sm font-semibold text-[var(--primary-blue)]">
+                profuture
+              </h1>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-5">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-[var(--text-primary)] hover:text-[var(--primary-blue)] transition-colors text-[13px] font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Dergi Kurulu Button */}
+            <Link href="/kurul" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+              <Icon name="kurul" size={18} className="invert" />
+              Dergi Kurulu
             </Link>
-          ))}
-        </div>
+            
+            {/* Yazar Rehberi Button */}
+            <Link href="/yazar-rehberi" className="flex items-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+              <Icon name="author" size={18} className="invert" />
+              Yazar Rehberi
+            </Link>
 
-        {/* Action Buttons */}
-        <div className="hidden lg:flex items-center gap-3">
-          {/* Dergi Kurulu Button */}
-          <Link href="/kurul" className="btn-dark">
-            <Icon name="kurul" size={20} className="invert" />
-            Dergi Kurulu
-          </Link>
-          
-          {/* Yazar Rehberi Button */}
-          <Link href="/yazar-rehberi" className="btn-green">
-            <Icon name="author" size={20} className="invert" />
-            Yazar Rehberi
-          </Link>
+            {/* Search Button */}
+            <button className="w-9 h-9 rounded-full border border-[var(--border-light)] flex items-center justify-center hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)] hover:text-white transition-all group">
+              <Icon name="search" size={16} />
+            </button>
+          </div>
 
-          {/* Search Button */}
-          <button className="btn-icon-circle">
-            <Icon name="search" size={18} />
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <Icon name="menu" size={24} />
           </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <Icon name="menu" size={24} />
-        </button>
-      </nav>
+        </nav>
+      </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
@@ -90,12 +107,12 @@ export default function Header() {
               </Link>
             ))}
             <div className="flex flex-col gap-3 mt-4">
-              <Link href="/kurul" className="btn-dark text-center">
-                <Icon name="kurul" size={20} className="invert" />
+              <Link href="/kurul" className="flex items-center justify-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-sm font-medium">
+                <Icon name="kurul" size={18} className="invert" />
                 Dergi Kurulu
               </Link>
-              <Link href="/yazar-rehberi" className="btn-green text-center">
-                <Icon name="author" size={20} className="invert" />
+              <Link href="/yazar-rehberi" className="flex items-center justify-center gap-2 bg-[var(--accent-green)] text-white px-4 py-2 rounded-full text-sm font-medium">
+                <Icon name="author" size={18} className="invert" />
                 Yazar Rehberi
               </Link>
             </div>

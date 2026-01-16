@@ -10,12 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Zeplin Creative | Teknoloji Dergisi",
+  title: "Profuture | Teknoloji Dergisi",
   description: "Türkiye'nin önde gelen hakemli akademik teknoloji dergisi. Dijital dönüşüm, yapay zeka, büyük veri ve siber güvenlik alanlarında özgün araştırmalar.",
-  keywords: ["teknoloji dergisi", "akademik dergi", "dijital dönüşüm", "yapay zeka", "büyük veri", "siber güvenlik", "Türkiye", "Zeplin Creative"],
-  authors: [{ name: "Zeplin Creative" }],
+  keywords: ["teknoloji dergisi", "akademik dergi", "dijital dönüşüm", "yapay zeka", "büyük veri", "siber güvenlik", "Türkiye", "Profuture"],
+  authors: [{ name: "Profuture" }],
   openGraph: {
-    title: "Zeplin Creative Teknoloji Dergisi",
+    title: "Profuture Teknoloji Dergisi",
     description: "Türkiye'nin önde gelen hakemli akademik teknoloji dergisi",
     type: "website",
     locale: "tr_TR",
