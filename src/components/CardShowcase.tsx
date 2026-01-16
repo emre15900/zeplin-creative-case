@@ -19,8 +19,8 @@ export default function CardShowcase() {
             pages="12-28"
             authors="Elif Başkaya Acar,  Emre Taran,  Halil Başar"
             badges={[
-              { label: 'İklim', type: 'climate' },
-              { label: 'Araştırma Makalesi', type: 'research' },
+              { label: 'İklim', type: 'primary' },
+              { label: 'Araştırma Makalesi', type: 'secondary' },
             ]}
           />
 
