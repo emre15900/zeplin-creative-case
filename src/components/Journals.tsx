@@ -47,12 +47,12 @@ const journals: JournalItem[] = [
 
 function JournalCard({ journal }: { journal: JournalItem }) {
   return (
-    <div className="bg-white border border-[#E9F4F8] rounded-[20px] p-4 flex gap-[15px] relative overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white border border-[#E9F4F8] rounded-[20px] p-3 sm:p-4 flex flex-col sm:flex-row gap-3 sm:gap-[15px] relative overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Son Sayı Ribbon */}
       {journal.hasRibbon && (
-        <div className="absolute -left-[2px] top-[121px] z-20">
+        <div className="absolute -left-[2px] top-[80px] sm:top-[121px] z-20">
           <div 
-            className="bg-[#DB0D15] text-white text-[11px] font-bold py-3 px-[6px] rounded-r-lg flex items-center justify-center"
+            className="bg-[#DB0D15] text-white text-[10px] sm:text-[11px] font-bold py-2 sm:py-3 px-[5px] sm:px-[6px] rounded-r-lg flex items-center justify-center"
             style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', letterSpacing: '1px' }}
           >
             Son Sayı
@@ -61,7 +61,7 @@ function JournalCard({ journal }: { journal: JournalItem }) {
       )}
       
       {/* Magazine Image */}
-      <div className="relative w-[191px] h-[285px] flex-shrink-0 rounded-lg overflow-hidden bg-gray-200">
+      <div className="relative w-full sm:w-[191px] h-[200px] sm:h-[285px] flex-shrink-0 rounded-lg overflow-hidden bg-gray-200">
         <Image 
           src={journal.image} 
           alt={journal.title}
@@ -73,56 +73,56 @@ function JournalCard({ journal }: { journal: JournalItem }) {
       {/* Content */}
       <div className="flex flex-col justify-between py-0 flex-1">
         {/* Top Section */}
-        <div className="flex flex-col gap-[11px]">
+        <div className="flex flex-col gap-2 sm:gap-[11px]">
           {/* Top Row: PDF Icon & YENİ Badge */}
           <div className="flex items-center justify-between">
             <div className="w-[22px] h-[25px] flex items-center justify-center">
               <Icon name="pdf" size={22} className="text-[#676A73]" />
             </div>
-            <span className="bg-[#00C3D0] text-white text-[11px] font-bold px-2 py-[2px] rounded-full">
+            <span className="bg-[#00C3D0] text-white text-[10px] sm:text-[11px] font-bold px-2 py-[2px] rounded-full">
               YENİ
             </span>
           </div>
 
           {/* Badge */}
           <div className="flex items-center gap-2">
-            <span className="bg-[#F7F8FF] text-[#112053] text-[12px] font-medium px-[10px] py-[3px] rounded-lg">
+            <span className="bg-[#F7F8FF] text-[#112053] text-[11px] sm:text-[12px] font-medium px-[10px] py-[3px] rounded-lg">
               Dergi
             </span>
           </div>
 
           {/* Title */}
-          <h4 className="text-[18px] font-bold text-[#112053] leading-[1.35] pr-2">
+          <h4 className="text-[16px] sm:text-[18px] font-bold text-[#112053] leading-[1.35] pr-2">
             {journal.title}
           </h4>
 
           {/* Meta Info */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-[#676A73]">
+          <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[11px] sm:text-[12px] text-[#676A73]">
             <div className="flex items-center gap-1.5">
-              <Icon name="cilt" size={16} className="text-[#676A73]" />
+              <Icon name="cilt" size={14} className="text-[#676A73]" />
               <span>Cilt: <strong className="text-[#112053]">{journal.volume}</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Icon name="Number" size={16} className="text-[#676A73]" />
+              <Icon name="Number" size={14} className="text-[#676A73]" />
               <span>Sayı: <strong className="text-[#112053]">{journal.issue}</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Icon name="calendar" size={16} className="text-[#676A73]" />
+              <Icon name="calendar" size={14} className="text-[#676A73]" />
               <span>{journal.date}</span>
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3 mt-auto pt-4">
-          <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
-            <Icon name="eye" size={18} className="invert" />
+        <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-auto pt-3 sm:pt-4">
+          <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
+            <Icon name="eye" size={16} className="invert" />
           </button>
-          <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
-            <Icon name="download" size={18} className="text-[#676A73]" />
+          <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
+            <Icon name="download" size={16} className="text-[#676A73]" />
           </button>
-          <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
-            <Icon name="right" size={18} className="text-[#676A73]" />
+          <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
+            <Icon name="right" size={16} className="text-[#676A73]" />
           </button>
         </div>
       </div>
@@ -132,38 +132,38 @@ function JournalCard({ journal }: { journal: JournalItem }) {
 
 export default function Journals() {
   return (
-    <section className="pb-16 bg-[#FBFBFB]">
+    <section id="sayilar" className="pt-12 sm:pt-16 pb-12 sm:pb-16 bg-[#FBFBFB]">
       <div className="container">
         {/* Header */}
-        <div className="flex items-end justify-between mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-0 mb-8 sm:mb-10">
           {/* Left - Title Section with Nav Arrows */}
-          <div className="flex items-end gap-[19px]">
+          <div className="flex items-end gap-3 sm:gap-[19px]">
             {/* Title Section */}
-            <div className="flex flex-col gap-3">
-              <p className="text-[14px] text-[#676A73]">Sayılar</p>
-              <h2 className="text-[20px] font-bold text-[#273D89]">Dergiler</h2>
+            <div className="flex flex-col gap-2 sm:gap-3">
+              <p className="text-[13px] sm:text-[14px] text-[#676A73]">Sayılar</p>
+              <h2 className="text-[18px] sm:text-[20px] font-bold text-[#273D89]">Dergiler</h2>
             </div>
             
             {/* Nav Arrows */}
-            <div className="flex items-center gap-3 pb-1">
-              <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group">
-                <Icon name="left" size={14} className="text-[#ACB1C6] group-hover:text-[#676A73]" />
+            <div className="flex items-center gap-2 sm:gap-3 pb-1">
+              <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group">
+                <Icon name="left" size={12} className="text-[#ACB1C6] group-hover:text-[#676A73]" />
               </button>
-              <button className="w-10 h-10 cursor-pointer rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
-                <Icon name="right" size={14} className="invert" />
+              <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
+                <Icon name="right" size={12} className="invert" />
               </button>
             </div>
           </div>
 
           {/* Right - View All Link */}
-          <button className="flex items-center gap-2 text-[16px] text-[#273D89] font-medium hover:underline cursor-pointer">
+          <button className="flex items-center gap-2 text-[14px] sm:text-[16px] text-[#273D89] font-medium hover:underline cursor-pointer self-start sm:self-auto">
             Tümünü Görüntüle
-            <Icon name="right" size={16} className="text-[#273D89]" />
+            <Icon name="right" size={14} className="text-[#273D89]" />
           </button>
         </div>
 
         {/* Journals Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {journals.map((journal) => (
             <JournalCard key={journal.id} journal={journal} />
           ))}

@@ -5,13 +5,12 @@ import Icon from './Icon';
 
 export default function CallForPapers() {
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <section id="makale-cagrilari" className="py-10 sm:py-16 bg-white overflow-hidden">
       <div className="container overflow-visible">
         {/* Main Card Container */}
         <div 
-          className="relative overflow-visible"
+          className="relative overflow-visible rounded-[20px] sm:rounded-[35px]"
           style={{
-            borderRadius: '35px',
             minHeight: '439px',
             backgroundImage: 'url(/img/callforpapaersbg.svg)',
             backgroundSize: 'cover',
@@ -40,20 +39,21 @@ export default function CallForPapers() {
             </div>
 
             {/* Center - Content */}
-            <div className="flex-1 py-12 px-8 lg:pl-[400px] lg:pr-[320px] text-center">
+            <div className="flex-1 py-8 sm:py-12 px-5 sm:px-8 lg:pl-[400px] lg:pr-[320px] text-center">
               {/* Promotion Icon */}
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-3 sm:mb-4">
                 <div 
-                  className="w-10 h-10 flex items-center justify-center"
+                  className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
                   style={{ transform: 'rotate(30deg)' }}
                 >
-                  <Icon name="promotion" size={40} className="text-[#DB0D15]" />
+                  <Icon name="promotion" size={32} className="text-[#DB0D15] sm:hidden" />
+                  <Icon name="promotion" size={40} className="text-[#DB0D15] hidden sm:block" />
                 </div>
               </div>
               
               {/* Subtitle */}
               <p 
-                className="text-[16px] font-medium mb-3"
+                className="text-[14px] sm:text-[16px] font-medium mb-2 sm:mb-3"
                 style={{ color: '#676A73' }}
               >
                 Makale Çağrısı
@@ -61,7 +61,7 @@ export default function CallForPapers() {
               
               {/* Title */}
               <h3 
-                className="text-[22px] lg:text-[26px] font-bold mb-6 leading-tight"
+                className="text-[18px] sm:text-[22px] lg:text-[26px] font-bold mb-4 sm:mb-6 leading-tight"
                 style={{ color: '#273D89' }}
               >
                 Türkiye Ulusal Dijital Veri ve  Altyapıları
@@ -69,7 +69,7 @@ export default function CallForPapers() {
               
               {/* Description */}
               <p 
-                className="text-[15px] leading-[25px] mb-8 max-w-[480px] mx-auto"
+                className="text-[13px] sm:text-[15px] leading-[22px] sm:leading-[25px] mb-6 sm:mb-8 max-w-[480px] mx-auto"
                 style={{ color: '#2A2C31' }}
               >
                 Bu dosya kapsamında; ulusal ölçekte dijital veri yönetimi, kamu ve özel sektörde teknoloji altyapıları, yapay zekâ uygulamaları, büyük veri analitiği, siber güvenlik, akıllı sistemler ve dijital dönüşüm odaklı özgün, güncel ve disiplinlerarası akademik çalışmalar değerlendirilecektir.
@@ -77,15 +77,15 @@ export default function CallForPapers() {
 
               {/* CTA Button */}
               <button 
-                className="inline-flex items-center cursor-pointer justify-center gap-2.5 text-white px-8 py-4 text-[16px] font-semibold hover:opacity-90 transition-all"
+                className="inline-flex items-center cursor-pointer justify-center gap-2 sm:gap-2.5 text-white px-6 sm:px-8 py-3 sm:py-4 text-[14px] sm:text-[16px] font-semibold hover:opacity-90 transition-all"
                 style={{ 
                   backgroundColor: '#DB0D15',
                   borderRadius: '50px',
-                  minWidth: '200px'
+                  minWidth: '180px'
                 }}
               >
                 <span>Makale Gönder</span>
-                <Icon name="right" size={16} className="invert" />
+                <Icon name="right" size={14} className="invert" />
               </button>
             </div>
 
@@ -118,11 +118,11 @@ export default function CallForPapers() {
           </div>
 
           {/* Mobile Magazine Cover */}
-          <div className="lg:hidden flex justify-center pb-8 px-8">
+          <div className="lg:hidden flex justify-center pb-6 sm:pb-8 px-5 sm:px-8">
             <div 
-              className="relative w-[240px] h-[365px] overflow-hidden"
+              className="relative w-[200px] sm:w-[240px] h-[300px] sm:h-[365px] overflow-hidden"
               style={{
-                borderRadius: '27px',
+                borderRadius: '20px',
                 boxShadow: '0 5px 15px rgba(0, 0, 0, 0.25)'
               }}
             >
