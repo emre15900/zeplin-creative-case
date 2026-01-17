@@ -20,7 +20,6 @@ interface JournalItem {
   hasRibbon?: boolean;
   image: string;
   description: string;
-  browseUrl: string;
   downloadUrl: string;
   detailUrl: string;
 }
@@ -36,8 +35,7 @@ const journals: JournalItem[] = [
     image: '/img/dergiler.svg',
     description:
       'Dijital dönüşüm, yapay zeka ve sürdürülebilir teknoloji üzerine derlenmiş seçkin makaleler.',
-    browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    downloadUrl: '/docs/dergi-ornek.pdf',
     detailUrl: '/dergiler/detay',
   },
   {
@@ -50,8 +48,7 @@ const journals: JournalItem[] = [
     image: '/img/dergiler.svg',
     description:
       'Yeni nesil teknolojiler, endüstri trendleri ve geleceğe dair uzman analizleri.',
-    browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    downloadUrl: '/docs/dergi-ornek.pdf',
     detailUrl: '/dergiler/detay',
   },
   {
@@ -65,8 +62,7 @@ const journals: JournalItem[] = [
     image: '/img/dergiler.svg',
     description:
       'Veri bilimi, siber güvenlik ve ürün tasarımı odağında güncel içerikler.',
-    browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    downloadUrl: '/docs/dergi-ornek.pdf',
     detailUrl: '/dergiler/detay',
   },
 ];
@@ -151,7 +147,7 @@ function JournalCard({
             type="button"
             onClick={onView}
             aria-label="Gözat"
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors cursor-pointer"
           >
             <Icon name="eye" size={16} className="invert" />
           </button>
@@ -246,7 +242,7 @@ export default function Journals() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-4 py-6"
           role="dialog"
           aria-modal="true"
-          aria-label="PDF görüntüleme"
+          aria-label="Dergi önizleme"
         >
           <button
             type="button"
@@ -263,16 +259,16 @@ export default function Journals() {
             >
               <span className="text-[#273D89] text-xl leading-none">×</span>
             </button>
-            <div className="flex flex-col sm:flex-row gap-5 p-6 border-b border-[#E8EAF5]">
-              <div className="relative w-full sm:w-[220px] h-[140px] sm:h-[160px] rounded-xl overflow-hidden bg-[#F7F8FF]">
-                <Image
-                  src={activeJournal.image}
-                  alt={activeJournal.title}
-                  fill
-                  className="object-contain p-4"
-                />
-              </div>
-              <div className="flex-1 flex flex-col gap-3">
+            <div className="flex flex-col lg:flex-row gap-6 p-6 sm:p-8">
+              <div className="w-full lg:w-[280px] flex flex-col gap-4">
+                <div className="relative w-full h-[220px] rounded-2xl overflow-hidden bg-[#F7F8FF]">
+                  <Image
+                    src={activeJournal.image}
+                    alt={activeJournal.title}
+                    fill
+                    className="object-contain p-6"
+                  />
+                </div>
                 <div className="flex items-center gap-2 text-[12px] text-[#676A73]">
                   <span className="bg-[#F7F8FF] text-[#112053] text-[11px] sm:text-[12px] font-medium px-[10px] py-[3px] rounded-lg">
                     {activeJournal.badge}
@@ -280,12 +276,68 @@ export default function Journals() {
                   <span>•</span>
                   <span>{activeJournal.date}</span>
                 </div>
-                <h3 className="text-[18px] sm:text-[20px] font-bold text-[#112053]">
+                <div className="flex flex-col gap-2 text-[12px] text-[#676A73]">
+                  <div className="flex items-center justify-between">
+                    <span>Cilt</span>
+                    <strong className="text-[#112053]">{activeJournal.volume}</strong>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Sayı</span>
+                    <strong className="text-[#112053]">{activeJournal.issue}</strong>
+                  </div>
+                </div>
+                <a
+                  href={activeJournal.downloadUrl}
+                  download
+                  className="inline-flex items-center justify-center h-[40px] px-5 rounded-full bg-[#E8EAF5] text-[#273D89] text-[13px] sm:text-[14px] font-medium hover:bg-[#d8daea] transition-colors"
+                >
+                  PDF İndir
+                </a>
+              </div>
+
+              <div className="flex-1 flex flex-col gap-4">
+                <h3 className="text-[20px] sm:text-[22px] font-bold text-[#112053]">
                   {activeJournal.title}
                 </h3>
-                <p className="text-[13px] sm:text-[14px] text-[#676A73] leading-[1.6]">
+                <p className="text-[13px] sm:text-[14px] text-[#676A73] leading-[1.7]">
                   {activeJournal.description}
                 </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-[#F7F8FF] rounded-xl p-4">
+                    <h4 className="text-[13px] font-semibold text-[#112053] mb-2">
+                      Öne Çıkanlar
+                    </h4>
+                    <ul className="text-[12px] text-[#676A73] space-y-1">
+                      <li>• Yapay zekâ ile dönüşüm stratejileri</li>
+                      <li>• Veri odaklı karar alma modelleri</li>
+                      <li>• Siber güvenlikte yeni yaklaşımlar</li>
+                    </ul>
+                  </div>
+                  <div className="bg-[#F7F8FF] rounded-xl p-4">
+                    <h4 className="text-[13px] font-semibold text-[#112053] mb-2">
+                      İçerik Özeti
+                    </h4>
+                    <p className="text-[12px] text-[#676A73] leading-[1.6]">
+                      Bu sayıda teknoloji trendleri, sektör analizleri ve uygulama
+                      örnekleri kısa, okunabilir formatlarda sunuluyor.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {['Yapay Zekâ', 'Veri Bilimi', 'Sürdürülebilirlik', 'Tasarım'].map(
+                    (tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] sm:text-[12px] text-[#112053] bg-[#F7F8FF] px-3 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    )
+                  )}
+                </div>
+
                 <div className="flex items-center gap-3 pt-2">
                   <Link
                     href={activeJournal.detailUrl}
@@ -295,13 +347,6 @@ export default function Journals() {
                   </Link>
                 </div>
               </div>
-            </div>
-            <div className="flex-1">
-              <iframe
-                title="PDF Önizleme"
-                src={activeJournal.browseUrl}
-                className="w-full h-full"
-              />
             </div>
           </div>
         </div>
