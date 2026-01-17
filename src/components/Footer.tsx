@@ -20,7 +20,12 @@ export default function Footer() {
                 <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[15px] sm:h-[15px]">
                   <path d="M13.75 7.5C13.75 10.9518 10.9518 13.75 7.5 13.75C4.04822 13.75 1.25 10.9518 1.25 7.5C1.25 4.04822 4.04822 1.25 7.5 1.25C10.9518 1.25 13.75 4.04822 13.75 7.5Z" fill="#DB0D15"/>
                 </svg>
-                <span className="text-[12px] sm:text-[14px] text-white leading-[17px] sm:leading-[19px]">elif@gmail.com</span>
+                <a
+                  href="mailto:elif@gmail.com"
+                  className="text-[12px] sm:text-[14px] text-white leading-[17px] sm:leading-[19px] hover:underline"
+                >
+                  elif@gmail.com
+                </a>
               </div>
             </div>
           </div>
@@ -32,7 +37,12 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-[2px] sm:gap-[3px]">
               <p className="text-[12px] sm:text-[14px] text-white leading-[18px] sm:leading-[20px]">Mail Adresi</p>
-              <p className="text-[14px] sm:text-[16px] font-bold leading-[20px] sm:leading-[22px]">profuture@gmail.com</p>
+              <a
+                href="mailto:profuture@gmail.com"
+                className="text-[14px] sm:text-[16px] font-bold leading-[20px] sm:leading-[22px] hover:underline"
+              >
+                profuture@gmail.com
+              </a>
             </div>
           </div>
 
@@ -43,9 +53,14 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-[2px] sm:gap-[3px]">
               <p className="text-[12px] sm:text-[14px] text-white leading-[18px] sm:leading-[20px]">Profuture Teknoloji Yayınevi</p>
-              <p className="text-[14px] sm:text-[16px] font-bold leading-[20px] sm:leading-[22px] max-w-[280px] sm:max-w-[356px]">
+              <a
+                href="https://maps.google.com/?q=Ahmet%20Kemal%20Mahallesi%201245.%20Cadde%20No:%2010%20%C3%87ankaya/Ankara"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[14px] sm:text-[16px] font-bold leading-[20px] sm:leading-[22px] max-w-[280px] sm:max-w-[356px] hover:underline"
+              >
                 Ahmet Kemal Mahallesi 1245. Cadde No: 10 Çankaya/Ankara
-              </p>
+              </a>
             </div>
           </div>
         </div>

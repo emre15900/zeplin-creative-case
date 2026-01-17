@@ -28,10 +28,19 @@ export default function JournalScope() {
             </p>
 
             {/* Button */}
-            <button className="inline-flex mt-6 sm:mt-10 items-center gap-[10px] border border-[#ACB1C6] px-[15px] py-[14px] sm:py-[16.5px] rounded-[50px] text-[14px] sm:text-[16px] font-normal text-[#2A2C31] hover:border-[#273D89] hover:text-[#273D89] transition-all w-[130px] sm:w-[150px] h-[50px] sm:h-[55px] justify-center cursor-pointer">
-              <span>Detay</span>
-              <Icon name="right" size={16} />
-            </button>
+            <div>
+              <button >
+                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Detay"
+                  className="inline-flex mt-6 sm:mt-10 items-center gap-[10px] border border-[#ACB1C6] px-[15px] py-[14px] sm:py-[16.5px] rounded-[50px] text-[14px] sm:text-[16px] font-normal text-[#2A2C31] hover:border-[#273D89] hover:text-[#273D89] transition-all w-[130px] sm:w-[150px] h-[50px] sm:h-[55px] justify-center cursor-pointer"
+                >
+                  Detay
+                  <Icon name="right" size={16} />
+                </a>
+              </button>
+            </div>
           </div>
 
           {/* Right - Magazine Image - Hidden on mobile/tablet, visible on desktop */}
