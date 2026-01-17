@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Icon from './Icon';
@@ -17,6 +19,7 @@ interface JournalItem {
   badge: string;
   hasRibbon?: boolean;
   image: string;
+  description: string;
   browseUrl: string;
   downloadUrl: string;
   detailUrl: string;
@@ -31,9 +34,11 @@ const journals: JournalItem[] = [
     date: 'Aralık 2022',
     badge: 'Dergi',
     image: '/img/dergiler.svg',
+    description:
+      'Dijital dönüşüm, yapay zeka ve sürdürülebilir teknoloji üzerine derlenmiş seçkin makaleler.',
     browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
     downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    detailUrl: '/dergiler/1',
+    detailUrl: '/dergiler/detay',
   },
   {
     id: 2,
@@ -43,9 +48,11 @@ const journals: JournalItem[] = [
     date: 'Aralık 2022',
     badge: 'Dergi',
     image: '/img/dergiler.svg',
+    description:
+      'Yeni nesil teknolojiler, endüstri trendleri ve geleceğe dair uzman analizleri.',
     browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
     downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    detailUrl: '/dergiler/2',
+    detailUrl: '/dergiler/detay',
   },
   {
     id: 3,
@@ -56,13 +63,21 @@ const journals: JournalItem[] = [
     badge: 'Dergi',
     hasRibbon: true,
     image: '/img/dergiler.svg',
+    description:
+      'Veri bilimi, siber güvenlik ve ürün tasarımı odağında güncel içerikler.',
     browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
     downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    detailUrl: '/dergiler/3',
+    detailUrl: '/dergiler/detay',
   },
 ];
 
-function JournalCard({ journal }: { journal: JournalItem }) {
+function JournalCard({
+  journal,
+  onView,
+}: {
+  journal: JournalItem;
+  onView: () => void;
+}) {
   return (
     <div className="bg-white border border-[#E9F4F8] rounded-[20px] p-3 sm:p-4 flex flex-col sm:flex-row gap-3 sm:gap-[15px] relative overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Son Sayı Ribbon */}
@@ -132,15 +147,14 @@ function JournalCard({ journal }: { journal: JournalItem }) {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-auto pt-3 sm:pt-4">
-          <a
-            href={journal.browseUrl}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="button"
+            onClick={onView}
             aria-label="Gözat"
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors"
           >
             <Icon name="eye" size={16} className="invert" />
-          </a>
+          </button>
           <a
             href={journal.downloadUrl}
             download
@@ -163,6 +177,7 @@ function JournalCard({ journal }: { journal: JournalItem }) {
 }
 
 export default function Journals() {
+  const [activeJournal, setActiveJournal] = useState<JournalItem | null>(null);
   return (
     <section id="sayilar" className="pt-12 sm:pt-16 pb-12 sm:pb-16 bg-[#FBFBFB]">
       <div className="container">
@@ -218,11 +233,79 @@ export default function Journals() {
         >
           {journals.map((journal) => (
             <SwiperSlide key={journal.id} className="h-auto">
-              <JournalCard journal={journal} />
+              <JournalCard
+                journal={journal}
+                onView={() => setActiveJournal(journal)}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+      {activeJournal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-4 py-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label="PDF görüntüleme"
+        >
+          <button
+            type="button"
+            className="absolute inset-0"
+            onClick={() => setActiveJournal(null)}
+            aria-label="Kapat"
+          />
+          <div className="bg-white w-full max-w-5xl h-[80vh] rounded-2xl overflow-hidden shadow-xl relative z-10 flex flex-col">
+            <button
+              type="button"
+              onClick={() => setActiveJournal(null)}
+              className="absolute right-4 top-4 z-10 w-9 h-9 rounded-full bg-white/90 border border-[#E8EAF5] flex items-center justify-center hover:bg-white"
+              aria-label="Kapat"
+            >
+              <span className="text-[#273D89] text-xl leading-none">×</span>
+            </button>
+            <div className="flex flex-col sm:flex-row gap-5 p-6 border-b border-[#E8EAF5]">
+              <div className="relative w-full sm:w-[220px] h-[140px] sm:h-[160px] rounded-xl overflow-hidden bg-[#F7F8FF]">
+                <Image
+                  src={activeJournal.image}
+                  alt={activeJournal.title}
+                  fill
+                  className="object-contain p-4"
+                />
+              </div>
+              <div className="flex-1 flex flex-col gap-3">
+                <div className="flex items-center gap-2 text-[12px] text-[#676A73]">
+                  <span className="bg-[#F7F8FF] text-[#112053] text-[11px] sm:text-[12px] font-medium px-[10px] py-[3px] rounded-lg">
+                    {activeJournal.badge}
+                  </span>
+                  <span>•</span>
+                  <span>{activeJournal.date}</span>
+                </div>
+                <h3 className="text-[18px] sm:text-[20px] font-bold text-[#112053]">
+                  {activeJournal.title}
+                </h3>
+                <p className="text-[13px] sm:text-[14px] text-[#676A73] leading-[1.6]">
+                  {activeJournal.description}
+                </p>
+                <div className="flex items-center gap-3 pt-2">
+                  <Link
+                    href={activeJournal.detailUrl}
+                    className="inline-flex items-center justify-center h-[40px] px-5 rounded-full bg-[#273D89] text-white text-[13px] sm:text-[14px] font-medium hover:bg-[#1e3070] transition-colors"
+                  >
+                    Detaya Git
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="flex-1">
+              <iframe
+                title="PDF Önizleme"
+                src={activeJournal.browseUrl}
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
