@@ -1,7 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Icon from './Icon';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 interface JournalItem {
   id: number;
@@ -12,6 +17,9 @@ interface JournalItem {
   badge: string;
   hasRibbon?: boolean;
   image: string;
+  browseUrl: string;
+  downloadUrl: string;
+  detailUrl: string;
 }
 
 const journals: JournalItem[] = [
@@ -23,6 +31,9 @@ const journals: JournalItem[] = [
     date: 'Aralık 2022',
     badge: 'Dergi',
     image: '/img/dergiler.svg',
+    browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    detailUrl: '/dergiler/1',
   },
   {
     id: 2,
@@ -32,6 +43,9 @@ const journals: JournalItem[] = [
     date: 'Aralık 2022',
     badge: 'Dergi',
     image: '/img/dergiler.svg',
+    browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    detailUrl: '/dergiler/2',
   },
   {
     id: 3,
@@ -42,6 +56,9 @@ const journals: JournalItem[] = [
     badge: 'Dergi',
     hasRibbon: true,
     image: '/img/dergiler.svg',
+    browseUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    detailUrl: '/dergiler/3',
   },
 ];
 
@@ -115,15 +132,30 @@ function JournalCard({ journal }: { journal: JournalItem }) {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-auto pt-3 sm:pt-4">
-          <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
+          <a
+            href={journal.browseUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Gözat"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors"
+          >
             <Icon name="eye" size={16} className="invert" />
-          </button>
-          <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
+          </a>
+          <a
+            href={journal.downloadUrl}
+            download
+            aria-label="İndir"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors"
+          >
             <Icon name="download" size={16} className="text-[#676A73]" />
-          </button>
-          <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors">
+          </a>
+          <a
+            href={journal.detailUrl}
+            aria-label="Detay"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors"
+          >
             <Icon name="right" size={16} className="text-[#676A73]" />
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -146,10 +178,16 @@ export default function Journals() {
             
             {/* Nav Arrows */}
             <div className="flex items-center gap-2 sm:gap-3 pb-1">
-              <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group">
+              <button
+                type="button"
+                className="journals-swiper-prev w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#E8EAF5] flex items-center justify-center hover:bg-[#d8daea] transition-colors group"
+              >
                 <Icon name="left" size={12} className="text-[#ACB1C6] group-hover:text-[#676A73]" />
               </button>
-              <button className="w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors">
+              <button
+                type="button"
+                className="journals-swiper-next w-9 h-9 sm:w-10 sm:h-10 cursor-pointer rounded-[12px] sm:rounded-[15px] bg-[#273D89] flex items-center justify-center hover:bg-[#1e3070] transition-colors"
+              >
                 <Icon name="right" size={12} className="invert" />
               </button>
             </div>
@@ -163,11 +201,27 @@ export default function Journals() {
         </div>
 
         {/* Journals Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: '.journals-swiper-prev',
+            nextEl: '.journals-swiper-next',
+            disabledClass: 'opacity-50 pointer-events-none',
+          }}
+          spaceBetween={16}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+          }}
+          className="journals-swiper"
+        >
           {journals.map((journal) => (
-            <JournalCard key={journal.id} journal={journal} />
+            <SwiperSlide key={journal.id} className="h-auto">
+              <JournalCard journal={journal} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

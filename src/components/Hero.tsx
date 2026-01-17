@@ -4,11 +4,11 @@ import Icon from './Icon';
 
 export default function Hero() {
   return (
-    <section 
+    <section
       id="hero"
       className="relative flex items-center z-0 bg-cover bg-center bg-no-repeat min-h-[400px] md:min-h-[500px] lg:min-h-0"
-      style={{ 
-        backgroundImage: 'url(/img/slider.svg)', 
+      style={{
+        backgroundImage: 'url(/img/slider.svg)',
         backgroundPosition: "bottom",
         height: '600px'
       }}
@@ -44,9 +44,11 @@ export default function Hero() {
               </div>
 
               {/* CTA Button */}
-              <button className="inline-flex cursor-pointer items-center gap-3 bg-[#273D89] text-white px-5 sm:px-6 py-3 sm:py-4 rounded-full text-[13px] sm:text-[14px] font-semibold hover:bg-[#1a2d6b] transition-all">
-                Dergiyi Görüntüle
-                <Icon name="right" size={16} className="invert max-w-4 max-h-4" />
+              <button>
+                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" rel="noreferrer" className="inline-flex cursor-pointer items-center gap-3 bg-[#273D89] text-white px-5 sm:px-6 py-3 sm:py-4 rounded-full text-[13px] sm:text-[14px] font-semibold hover:bg-[#1a2d6b] transition-all">
+                  Dergiyi Görüntüle
+                  <Icon name="right" size={16} className="invert max-w-4 max-h-4" />
+                </a>
               </button>
             </div>
           </div>
