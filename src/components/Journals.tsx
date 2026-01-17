@@ -65,6 +65,48 @@ const journals: JournalItem[] = [
     downloadUrl: '/docs/dergi-ornek.pdf',
     detailUrl: '/dergiler/detay',
   },
+  {
+    id: 4,
+    title: 'Teknoloji ve Dijital Dergisi',
+    volume: 1,
+    issue: 1,
+    date: 'Aralık 2022',
+    badge: 'Dergi',
+    hasRibbon: true,
+    image: '/img/dergiler.svg',
+    description:
+      'Veri bilimi, siber güvenlik ve ürün tasarımı odağında güncel içerikler.',
+    downloadUrl: '/docs/dergi-ornek.pdf',
+    detailUrl: '/dergiler/detay',
+  },
+  {
+    id: 5,
+    title: 'Teknoloji ve Dijital Dergisi',
+    volume: 1,
+    issue: 1,
+    date: 'Aralık 2022',
+    badge: 'Dergi',
+    hasRibbon: true,
+    image: '/img/dergiler.svg',
+    description:
+      'Veri bilimi, siber güvenlik ve ürün tasarımı odağında güncel içerikler.',
+    downloadUrl: '/docs/dergi-ornek.pdf',
+    detailUrl: '/dergiler/detay',
+  },
+  {
+    id: 6,
+    title: 'Teknoloji ve Dijital Dergisi',
+    volume: 1,
+    issue: 1,
+    date: 'Aralık 2022',
+    badge: 'Dergi',
+    hasRibbon: true,
+    image: '/img/dergiler.svg',
+    description:
+      'Veri bilimi, siber güvenlik ve ürün tasarımı odağında güncel içerikler.',
+    downloadUrl: '/docs/dergi-ornek.pdf',
+    detailUrl: '/dergiler/detay',
+  },
 ];
 
 function JournalCard({
@@ -79,7 +121,7 @@ function JournalCard({
       {/* Son Sayı Ribbon */}
       {journal.hasRibbon && (
         <div className="absolute -left-[2px] top-[80px] sm:top-[121px] z-20">
-          <div 
+          <div
             className="bg-[#DB0D15] text-white text-[10px] sm:text-[11px] font-bold py-2 sm:py-3 px-[5px] sm:px-[6px] rounded-r-lg flex items-center justify-center"
             style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', letterSpacing: '1px' }}
           >
@@ -87,11 +129,11 @@ function JournalCard({
           </div>
         </div>
       )}
-      
+
       {/* Magazine Image */}
       <div className="relative w-full sm:w-[191px] h-[200px] sm:h-[285px] flex-shrink-0 rounded-lg overflow-hidden bg-gray-200">
-        <Image 
-          src={journal.image} 
+        <Image
+          src={journal.image}
           alt={journal.title}
           fill
           className="object-cover"
@@ -186,7 +228,7 @@ export default function Journals() {
               <p className="text-[13px] sm:text-[14px] text-[#676A73]">Sayılar</p>
               <h2 className="text-[18px] sm:text-[20px] font-bold text-[#273D89]">Dergiler</h2>
             </div>
-            
+
             {/* Nav Arrows */}
             <div className="flex items-center gap-2 sm:gap-3 pb-1">
               <button
