@@ -151,7 +151,7 @@ export default function JournalDetailPage() {
       <section className="container pb-10 sm:pb-16">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-[18px] sm:text-[20px] font-bold text-[#112053]">Diğer Sayılar</h2>
-          <Link href="/" className="text-[13px] sm:text-[14px] text-[#273D89] hover:underline">
+          <Link href="/dergiler" className="text-[13px] sm:text-[14px] text-[#273D89] hover:underline">
             Tümünü Görüntüle
           </Link>
         </div>
