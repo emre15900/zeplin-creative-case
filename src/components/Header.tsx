@@ -214,13 +214,13 @@ export default function Header() {
             </a>
 
             {/* Menu Items */}
-            <nav className="flex items-center gap-5">
+            <nav className="flex items-center gap-2">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className="text-[16px] font-normal transition-colors hover:text-[#273D89] whitespace-nowrap px-[10px] first:pl-0 cursor-pointer"
+                  className="text-[13px] font-normal transition-colors hover:text-[#273D89] whitespace-nowrap px-[10px] first:pl-0 cursor-pointer"
                   style={{ color: '#2A2C31' }}
                 >
                   {item.name}
