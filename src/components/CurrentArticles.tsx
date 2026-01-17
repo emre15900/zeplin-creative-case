@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import Icon from './Icon';
 import ArticleCard from './ui/ArticleCard';
 
@@ -85,13 +86,21 @@ export default function CurrentArticles() {
 
               {/* Actions for large card */}
               <div className="flex items-center justify-center gap-2 sm:gap-[10px]">
-                <button className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] rounded-full cursor-pointer border border-[#ACB1C6] flex items-center justify-center hover:bg-gray-50 transition-all">
+                <a
+                  href="/docs/dergi-ornek.pdf"
+                  download
+                  className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] rounded-full cursor-pointer border border-[#ACB1C6] flex items-center justify-center hover:bg-gray-50 transition-all"
+                  aria-label="PDF indir"
+                >
                   <Icon name="download" size={18} />
-                </button>
-                <button className="flex-1 bg-[#273D89] max-w-[150px] sm:max-w-[170px] cursor-pointer text-white py-3 sm:py-4 rounded-full text-[14px] sm:text-[16px] font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 sm:gap-3">
+                </a>
+                <Link
+                  href="/dergiler/detay"
+                  className="flex-1 bg-[#273D89] max-w-[150px] sm:max-w-[170px] cursor-pointer text-white py-3 sm:py-4 rounded-full text-[14px] sm:text-[16px] font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 sm:gap-3"
+                >
                   <Icon name="eye" size={20} className="invert" />
                   Görüntüle
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -104,10 +113,13 @@ export default function CurrentArticles() {
                 <p className="text-[14px] sm:text-[16px] text-[#676A73]">Profuture Teknoloji Dergisi</p>
                 <h2 className="text-[18px] sm:text-[20px] font-bold text-[#DB0D15]">Güncel Yazılar</h2>
               </div>
-              <button className="flex items-center gap-2 sm:gap-[10px] cursor-pointer bg-white border border-[#ACB1C6] px-3 sm:px-[15px] py-3 sm:py-[16.5px] rounded-full text-[14px] sm:text-[16px] font-semibold text-[#2A2C31] hover:border-[#273D89] transition-all self-start">
+              <Link
+                href="/dergiler"
+                className="flex items-center gap-2 sm:gap-[10px] cursor-pointer bg-white border border-[#ACB1C6] px-3 sm:px-[15px] py-3 sm:py-[16.5px] rounded-full text-[14px] sm:text-[16px] font-semibold text-[#2A2C31] hover:border-[#273D89] transition-all self-start"
+              >
                 Tümünü Görüntüle
                 <Icon name="right" size={14} />
-              </button>
+              </Link>
             </div>
 
             {/* Articles */}

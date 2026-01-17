@@ -30,9 +30,17 @@ export default function JournalDetailPage() {
       <section className="bg-[#0B1A4A] text-white">
         <div className="container py-10 sm:py-14">
           <div className="flex flex-col gap-3">
-            <Link href="/" className="text-[12px] sm:text-[13px] text-white/70 hover:text-white">
-              Anasayfa / Dergiler / Detay
-            </Link>
+            <div className="text-[12px] sm:text-[13px]">
+              <Link href="/" className="text-white/70 hover:text-white">
+                Anasayfa
+              </Link>
+              <span className="text-white/40 mx-2">/</span>
+              <Link href="/dergiler" className="text-white/70 hover:text-white">
+                Dergiler
+              </Link>
+              <span className="text-white/40 mx-2">/</span>
+              <span className="text-white font-semibold">Detay</span>
+            </div>
             <h1 className="text-[22px] sm:text-[28px] font-bold">
               {dummyIssue.title}
             </h1>
